@@ -307,8 +307,8 @@ a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:va
         <a href="#programa" class="btn btn-ghost-light btn-lg">Como funciona</a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><div class="v">6<small> materiais</small></div><div class="k">Publicados e disponíveis</div></div>
-        <div class="hstat"><div class="v">5</div><div class="k">Temas clínicos</div></div>
+        <div class="hstat"><div class="v">7<small> materiais</small></div><div class="k">Publicados e disponíveis</div></div>
+        <div class="hstat"><div class="v">6</div><div class="k">Temas clínicos</div></div>
         <div class="hstat"><div class="v">100%</div><div class="k">Revisado por pares</div></div>
       </div>
     </div>
@@ -346,7 +346,8 @@ a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:va
       <span class="btn btn-primary" style="pointer-events:none">Buscar</span>
     </label>
     <div class="chips" id="chips">
-      <span class="chip active" data-cat="all">Todos <span class="ct">6</span></span>
+      <span class="chip active" data-cat="all">Todos <span class="ct">7</span></span>
+      <span class="chip" data-cat="seguranca">Segurança do paciente <span class="ct">1</span></span>
       <span class="chip" data-cat="renal">Função renal <span class="ct">1</span></span>
       <span class="chip" data-cat="hepatica">Função hepática <span class="ct">1</span></span>
       <span class="chip" data-cat="tireoide">Tireoide <span class="ct">1</span></span>
@@ -365,10 +366,27 @@ a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:va
         <h2>Biblioteca de visual aids</h2>
         <p>Cada material traz mensagens-chave no topo e o aprofundamento com evidência logo abaixo — pronto para a visita e para consulta rápida depois.</p>
       </div>
-      <span class="badge badge-outline" id="count">6 materiais disponíveis</span>
+      <span class="badge badge-outline" id="count">7 materiais disponíveis</span>
     </div>
 
     <div class="grid" id="grid">
+
+      <!-- Cascata da sobreprevenção -->
+      <a class="card" href="cascata-sobreprevencao.html" data-cat="seguranca" data-title="cascata da sobreprevencao prevencao quaternaria sobrediagnostico sobretratamento efeitos adversos seguranca do paciente rastreamento check-up excesso de exames choosing wisely">
+        <div class="card-top g-prev">
+          <span class="cat">Segurança do Paciente</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7 12 11l7.5-4L12 3z"/><path d="M4.5 12 12 16l7.5-4M4.5 17 12 21l7.5-4"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>A cascata da sobreprevenção</h3>
+          <p>Como um exame desnecessário inicia uma cascata de sobrediagnóstico, sobretratamento e efeitos adversos — nas pessoas e no sistema.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~4 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 4 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
 
       <!-- Vitamina D -->
       <a class="card" href="vitamina-d.html" data-cat="vitaminas" data-title="dosagem de vitamina d em adultos assintomaticos 25 hidroxivitamina rastreamento vitaminas nutrientes">
@@ -551,6 +569,7 @@ a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:va
       <div>
         <h5>Materiais</h5>
         <ul>
+          <li><a href="cascata-sobreprevencao.html">A cascata da sobreprevenção</a></li>
           <li><a href="vitamina-d.html">Vitamina D</a></li>
           <li><a href="ureia.html">Ureia / função renal</a></li>
           <li><a href="tgo-tgp.html">TGO / TGP</a></li>
@@ -562,6 +581,7 @@ a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:va
       <div>
         <h5>Temas</h5>
         <ul>
+          <li><a href="#biblioteca">Segurança do paciente</a></li>
           <li><a href="#biblioteca">Função renal</a></li>
           <li><a href="#biblioteca">Função hepática</a></li>
           <li><a href="#biblioteca">Tireoide</a></li>
