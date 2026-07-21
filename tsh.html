@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSH isolado no rastreio da tireoide — Unimed Academic Detailing</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#00995d;--g1d:#00663d;--g3:#004e4c;--g3d:#003634;--citric:#b1d34b;
+  --tx:#1a2420;--tx2:#48544f;--tx3:#7d8c86;
+  --bg:#f5f4f0;--sf:#ffffff;--bd:#e2e8e5;--bd2:#d3ddd9;
+  --or:#f47920;--red:#b52828;--soft:#e6f7f0;--soft2:#eef4f2;
+  --shadow:0 1px 3px rgba(0,54,52,.06),0 8px 28px rgba(0,54,52,.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px 64px}
+.brandbar{background:linear-gradient(120deg,var(--g3) 0%,var(--g3d) 100%);color:#fff}
+.brandbar-in{max-width:880px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;gap:11px}
+.brand-ico{width:34px;height:34px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center}
+.brand-ico svg{display:block;width:34px;height:34px}
+.brand-nm{font-size:15px;font-weight:700;letter-spacing:-.2px;line-height:1.15}
+.brand-sub{font-size:10.5px;color:rgba(255,255,255,.55);letter-spacing:.07em;text-transform:uppercase;margin-top:1px}
+.brand-spacer{flex:1}
+.brand-back{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.82);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:8px 13px;border-radius:9px;text-decoration:none;transition:background .16s}
+.brand-back:hover{background:rgba(255,255,255,.2)}
+.hero{padding:30px 0 8px}
+.kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--g1d);background:var(--soft);padding:4px 11px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.18;font-weight:800;letter-spacing:-.6px;color:var(--tx);margin-bottom:8px}
+.lead{font-size:16.5px;color:var(--tx2);max-width:64ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+.meta-item{display:flex;align-items:center;gap:7px;background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:8px 12px}
+.meta-item svg{color:var(--g1);flex-shrink:0}
+.meta-k{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3);line-height:1.1}
+.meta-v{font-size:13px;font-weight:600;color:var(--tx);line-height:1.2}
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 4px}
+.ficha-card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.ficha-k{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tx3);margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--tx2);background:var(--soft2);border:1px solid var(--bd);border-radius:20px;padding:5px 11px}
+.tag svg{color:var(--g1)}
+.tag.spec{background:#fff;color:var(--tx)}
+.keybox{background:linear-gradient(160deg,#ffffff 0%,#f3faf7 100%);border:1px solid var(--bd2);border-left:5px solid var(--g1);border-radius:14px;padding:24px;margin:26px 0 8px;box-shadow:var(--shadow)}
+.keybox-h{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.keybox-h svg{color:var(--g1);flex-shrink:0}
+.keybox-h h2{font-size:18px;font-weight:700;letter-spacing:-.2px}
+.keybox p.big{font-size:16.5px;line-height:1.55;color:var(--tx)}
+.keybox p.big strong{color:var(--g1d)}
+.keybox .do{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.do-item{flex:1 1 220px;display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.do-item .i{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.do-item.no .i{background:#fdecea;color:var(--red)}
+.do-item.yes .i{background:var(--soft);color:var(--g1d)}
+.do-item p{font-size:13.5px;color:var(--tx2);line-height:1.45;margin:0}
+.do-item p b{color:var(--tx)}
+.deep-intro{display:flex;align-items:center;gap:10px;margin:38px 0 16px}
+.deep-intro .t{font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--tx3);white-space:nowrap}
+.deep-intro .ln{flex:1;height:1px;background:var(--bd)}
+.qa{display:flex;flex-direction:column;gap:10px}
+.qa-item{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px 18px}
+.qa-q{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:700;color:var(--tx);line-height:1.4;margin-bottom:8px}
+.qa-q svg{flex-shrink:0;color:var(--g1);margin-top:2px}
+.qa-a{font-size:14.5px;color:var(--tx2);line-height:1.55;padding-left:26px}
+.deep-hint{font-size:13px;color:var(--tx3);margin:-6px 0 16px;display:flex;align-items:center;gap:6px}
+.acc{display:flex;flex-direction:column;gap:10px}
+.acc-item{background:var(--sf);border:1px solid var(--bd);border-radius:13px;overflow:hidden;transition:border-color .18s,box-shadow .18s}
+.acc-item.open{border-color:var(--bd2);box-shadow:var(--shadow)}
+.acc-head{width:100%;min-height:60px;display:flex;align-items:center;gap:14px;padding:14px 18px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;color:var(--tx);-webkit-tap-highlight-color:transparent}
+.acc-head:active{background:var(--soft2)}
+.acc-num{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--soft);color:var(--g1d);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.acc-title{flex:1;font-size:16px;font-weight:600;letter-spacing:-.1px;line-height:1.3}
+.acc-ico{flex-shrink:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--tx3);transition:transform .25s ease}
+.acc-item.open .acc-ico{transform:rotate(45deg);color:var(--g1)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc-inner{padding:2px 22px 22px 22px}
+.acc-inner p{font-size:15px;color:var(--tx2);margin-bottom:13px}
+.acc-inner p strong{color:var(--tx)}
+.sub-h{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g1d);margin:18px 0 9px;display:flex;align-items:center;gap:8px}
+.sub-h::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--g1)}
+.acc-inner ul.bul{list-style:none;margin:4px 0 14px;display:flex;flex-direction:column;gap:8px}
+.acc-inner ul.bul li{position:relative;padding-left:22px;font-size:14.5px;color:var(--tx2)}
+.acc-inner ul.bul li::before{content:"";position:absolute;left:6px;top:9px;width:6px;height:6px;border-radius:2px;background:var(--g1);transform:rotate(45deg)}
+.callout{background:#fff7ef;border:1px solid #f7d9b8;border-radius:10px;padding:13px 15px;margin:10px 0 14px;font-size:14px;color:#7a3c00}
+.callout strong{color:#7a3c00}
+.didyou{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,var(--g3) 0%,var(--g3d) 100%);color:#fff;border-radius:14px;padding:20px 22px;margin:32px 0 8px;box-shadow:var(--shadow)}
+.didyou .ic{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:rgba(177,211,75,.2);color:var(--citric);display:flex;align-items:center;justify-content:center}
+.didyou .h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--citric);margin-bottom:6px}
+.didyou p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.9);margin:0}
+.didyou p+p{margin-top:10px}
+.didyou b{color:#fff}
+sup.cite{font-weight:700;font-size:11px;line-height:0}
+sup.cite a{color:var(--g1d);text-decoration:none;background:var(--soft);padding:1px 5px;border-radius:5px;margin-left:1px}
+.refs{margin-top:40px;border-top:2px solid var(--bd);padding-top:22px}
+.refs h2{font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx2);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.refs h2 svg{color:var(--g1)}
+.refs ol{list-style:none;counter-reset:r;display:flex;flex-direction:column;gap:11px}
+.refs li{counter-increment:r;position:relative;padding-left:34px;font-size:13px;color:var(--tx2);line-height:1.5}
+.refs li::before{content:counter(r);position:absolute;left:0;top:0;width:23px;height:23px;border-radius:6px;background:var(--soft);color:var(--g1d);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.refs li a{color:var(--g1d);word-break:break-word}
+.refs li.flash{animation:fl 1.4s ease}
+@keyframes fl{0%,40%{background:#fff6d6;border-radius:8px}100%{background:transparent}}
+.foot{margin-top:36px;padding-top:20px;border-top:1px solid var(--bd);font-size:12px;color:var(--tx3);line-height:1.6}
+.foot strong{color:var(--tx2)}
+@media (max-width:680px){body{font-size:15.5px}h1{font-size:25px}.wrap{padding:0 14px 48px}.keybox{padding:20px 18px}.acc-inner{padding:2px 16px 18px}.meta-item{flex:1 1 calc(50% - 8px)}.ficha{grid-template-columns:1fr}}
+@media (max-width:420px){h1{font-size:22px}.meta-item{flex:1 1 100%}}
+</style>
+</head>
+<body>
+
+<header class="brandbar">
+  <div class="brandbar-in">
+    <div class="brand-ico">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 552"><rect width="552" height="552" rx="60" fill="#00995d"/>
+      <g transform="translate(0,276) scale(0.1,-0.1)" fill="#FFF" stroke="none">
+        <path d="m3449 1267 c24 -12 54 -50 531 -682 145 -192 359 -476 476 -631 117 -155 216 -292 219 -305 3 -14 0 -32 -9 -44 -14 -19 -29 -20 -350 -25 -295 -4 -337 -7 -352 -22 -11 -11 -14 -24 -10 -40 3 -12 119 -175 256 -361 138 -186 253 -350 256 -364 5 -18 1 -31 -15 -46 -21 -22 -26 -22 -462 -25 -383 -2 -444 -1 -472 13 -20 10 -60 54 -107 118 -41 56 -122 167 -181 247 -245 331 -298 405 -302 422 -12 42 13 48 214 48 176 0 190 1 209 20 11 11 20 29 20 40 0 16 -162 240 -450 621 -81 107 -85 115 -65 145 l15 24 205 0 c237 0 274 8 275 62 0 10 -115 171 -256 358 -234 310 -260 341 -295 352 -30 8 -48 8 -78 0 -35 -11 -61 -42 -288 -345 -137 -182 -253 -341 -256 -351 -12 -30 1 -53 35 -65 18 -7 114 -11 233 -11 189 0 203 -1 220 -20 15 -16 16 -25 8 -43 -6 -13 -126 -178 -267 -366 -141 -189 -256 -351 -256 -360 0 -10 6 -26 14 -37 13 -17 31 -19 216 -24 215 -5 228 -9 210 -56 -7 -19 -160 -230 -345 -476 -27 -37 -86 -117 -130 -177 -44 -61 -93 -117 -110 -126 -27 -14 -80 -16 -471 -13 -424 3 -443 4 -464 23 -16 14 -20 27 -16 47 3 15 58 99 123 186 429 580 410 550 380 580 -16 15 -52 18 -353 22 -318 5 -336 6 -350 24 -8 11 -14 25 -14 30 0 19 39 76 214 314 94 129 187 255 206 282 38 53 236 324 552 757 140 190 207 275 226 282 43 15 1381 14 1411 -2z"/>
+      </g></svg>
+    </div>
+    <div>
+      <div class="brand-nm">Unimed Academic Detailing</div>
+      <div class="brand-sub">Material de apoio · Visita médica</div>
+    </div>
+    <span class="brand-spacer"></span>
+    <a class="brand-back" href="index.html">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Biblioteca
+    </a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="kicker">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Exames Laboratoriais · Choosing Wisely
+    </span>
+    <h1>TSH isolado no rastreio da tireoide</h1>
+    <p class="lead">Por que o TSH sozinho basta para rastrear e monitorar as formas mais comuns de disfunção tireoidiana — e quando realmente pedir T4 livre e T3 livre.</p>
+
+    <div class="meta">
+      <div class="meta-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="meta-k">Tempo de leitura</div><div class="meta-v">~5 minutos</div></div></div>
+      <div class="meta-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><div><div class="meta-k">Postagem</div><div class="meta-v">Julho/2026</div></div></div>
+      <div class="meta-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><div><div class="meta-k">Atualização</div><div class="meta-v">06/07/2026</div></div></div>
+      <div class="meta-item"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><div><div class="meta-k">Base</div><div class="meta-v">Choosing Wisely · SBPC/ML · SBEM</div></div></div>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-card">
+        <div class="ficha-k">Abrangência</div>
+        <div class="tags">
+          <span class="tag"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Internação</span>
+          <span class="tag"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Ambulatório</span>
+          <span class="tag"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Pronto-Atendimento</span>
+        </div>
+      </div>
+      <div class="ficha-card">
+        <div class="ficha-k">Especialidades relevantes</div>
+        <div class="tags">
+          <span class="tag spec">Medicina de Família e Comunidade</span>
+          <span class="tag spec">Clínica Médica</span>
+          <span class="tag spec">Endocrinologia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="keybox">
+    <div class="keybox-h">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <h2>Recomendação prática</h2>
+    </div>
+    <p class="big">Evitar a solicitação rotineira de <strong>T3 livre e T4 livre</strong> junto ao TSH para rastreamento de disfunção tireoidiana ou monitoramento de hipotireoidismo primário estável em uso de levotiroxina.</p>
+    <div class="do">
+      <div class="do-item no">
+        <span class="i"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+        <p><b>Evite</b> T3L/T4L de rotina junto do TSH — raramente alteram a conduta quando o TSH está normal.</p>
+      </div>
+      <div class="do-item yes">
+        <span class="i"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><b>Reserve</b> o T4 livre (e, se necessário, T3 livre) para TSH alterado, investigação/ajuste inicial ou suspeita de doença hipofisária/hipotalâmica.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="deep-intro"><span class="t">Síntese da evidência</span><span class="ln"></span></div>
+  <div class="qa">
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> O TSH isolado é suficiente para rastreio?</div>
+      <div class="qa-a">Sim. Na maioria dos casos, um TSH dentro da normalidade exclui doença tireoidiana primária.<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref5">5</a></sup></div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> T3L/T4L agregam valor quando solicitados de rotina junto ao TSH?</div>
+      <div class="qa-a">Raramente. Na maioria dos cenários ambulatoriais, não alteram a conduta quando o TSH está normal.<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref2">2</a></sup></div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Reduzir T3L/T4L de rotina traz risco?</div>
+      <div class="qa-a">Não. Estudos canadenses não identificaram efeitos adversos; reduções de 30% a 66% foram observadas sem prejuízo assistencial.<sup class="cite"><a href="#ref2">2–4</a></sup></div>
+    </div>
+  </div>
+
+  <div class="deep-intro"><span class="t">Aprofundar o tema</span><span class="ln"></span></div>
+  <div class="deep-hint">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    Toque em um tópico para ver os detalhes e as evidências.
+  </div>
+
+  <div class="acc">
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">1</span>
+        <span class="acc-title">Por que o TSH basta na maioria dos casos</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>A hipófise é <strong>extremamente sensível</strong> a variações de T3 e T4 e ajusta a secreção de TSH rapidamente por feedback negativo — o que torna o TSH isolado o exame mais confiável para rastrear e monitorar as formas mais comuns de hipo e hipertireoidismo.<sup class="cite"><a href="#ref1">1</a></sup></p>
+        <p>O T4 é convertido em T3 em nível celular na maioria dos tecidos, e os níveis intracelulares de T3 regulam a secreção hipofisária de TSH. Assim, na maioria das pessoas, um <strong>TSH normal indica função tireoidiana normal</strong> ou dose adequada de reposição. O TSH só perde confiabilidade em doença hipofisária ou hipotalâmica conhecida ou suspeita — e, nesse cenário, exames adicionais seguem indicados.<sup class="cite"><a href="#ref1">1</a></sup></p>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">2</span>
+        <span class="acc-title">O que dizem as diretrizes</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="sub-h">No Brasil</div>
+        <p>A <strong>SBPC/ML</strong>, na 2ª lista do Choosing Wisely Brasil, orienta que a dosagem de TSH é suficiente para o rastreio de doença tireoidiana em assintomáticos, reservando o T4 livre para confirmação quando o TSH estiver alterado.<sup class="cite"><a href="#ref5">5</a></sup> O Departamento de Tireoide da <strong>SBEM</strong> recomenda não repetir TSH e T4 livre em intervalos menores que 6 meses em hipotireoidismo estável em dose fixa de levotiroxina, sem indicação específica.<sup class="cite"><a href="#ref6">6</a></sup></p>
+        <div class="sub-h">No mundo</div>
+        <p>A Canadian Society of Endocrinology and Metabolism (Choosing Wisely Canadá) recomenda <strong>não usar T4 livre ou T3 livre</strong> para rastrear hipotireoidismo, nem para monitorar ou ajustar a dose de levotiroxina em hipotireoidismo primário conhecido — exceto quando houver suspeita de doença hipofisária ou hipotalâmica.<sup class="cite"><a href="#ref1">1</a></sup></p>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">3</span>
+        <span class="acc-title">Algoritmos de reflexo e segurança</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Algoritmos de <strong>reflexo</strong> — em que o T4 livre é processado apenas quando o TSH está fora do intervalo de referência — reduziram a solicitação de T4 livre e T3 livre em aproximadamente <strong>60% e 40%</strong>, respectivamente, em ambiente ambulatorial, sem comprometer a detecção de casos relevantes.<sup class="cite"><a href="#ref7">7</a></sup></p>
+        <div class="callout"><strong>Quando ir além do TSH:</strong> TSH alterado (avaliação reflexa/confirmatória), suspeita de doença hipofisária ou hipotalâmica, ou fase inicial de investigação/ajuste de tratamento.<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref4">4</a></sup></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="didyou">
+    <div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+    <div>
+      <div class="h">Você sabia?</div>
+      <p>Em hospitais de Toronto, algoritmos de reflexo (T4 livre processado só se o TSH estiver alterado) reduziram a solicitação de T3 livre e T4 livre entre <b>30% e 66%</b>, com economias de <b>CAD 16 mil a 43 mil por ano</b> — sem aumento de retestagem.<sup class="cite"><a href="#ref2">2–4</a></sup></p>
+      <p>No Brasil, a SBPC/ML já recomenda, desde 2020, o TSH como primeiro exame para rastreio, com confirmação por T4 livre apenas quando o TSH estiver alterado.<sup class="cite"><a href="#ref5">5</a></sup></p>
+    </div>
+  </div>
+
+  <section class="refs">
+    <h2><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Referências</h2>
+    <ol>
+      <li id="ref1">Canadian Society of Endocrinology and Metabolism. “Five Things Patients and Physicians Should Question.” Choosing Wisely Canada, 2020.</li>
+      <li id="ref2">Gilmour JA, Weisman A, Orlov S, et al. “Promoting resource stewardship: reducing inappropriate free thyroid hormone testing.” <em>J Eval Clin Pract</em>, 2017.</li>
+      <li id="ref3">Taher J, Beriault D, Yip D, et al. “Reducing free thyroid hormone testing through multiple Plan-Do-Study-Act cycles.” <em>Clin Biochem</em>, 81:41–46, 2020.</li>
+      <li id="ref4">Abitbol L, Tenedero C, Sepiashvili L, Wasserman J, Palmert M. “Routine T4 No More? Reducing Excess Thyroid Hormone Testing at a Pediatric Tertiary Care Hospital.” <em>J Pediatr</em>, 2021.</li>
+      <li id="ref5">SBPC/ML. “Choosing Wisely Brasil — 2ª lista de recomendações da Sociedade Brasileira de Patologia Clínica/Medicina Laboratorial.” 2020.</li>
+      <li id="ref6">Dora JM, Biscolla RPM, Caldas G, et al. (Departamento de Tireoide da SBEM). “Choosing Wisely for Thyroid Conditions: Recommendations of the Thyroid Department of the Brazilian Society of Endocrinology and Metabolism.” <em>Arch Endocrinol Metab</em>, 65(2):248–252, 2021.</li>
+      <li id="ref7">“Reducing unnecessary free thyroid hormone testing by the reinforcement of a reflexive algorithm in an outpatient environment.” <em>Clin Biochem</em>, 2025 (Saskatoon Health Region).</li>
+    </ol>
+  </section>
+
+  <div class="foot">
+    <strong>Unimed Academic Detailing</strong> — material de apoio para visita médica. Conteúdo de caráter educacional, baseado nas referências citadas e no programa Choosing Wisely Canada. As condutas devem ser individualizadas conforme avaliação clínica.<br>
+    Protótipo para validação · Julho/2026.
+  </div>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.acc-head').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement, body = item.querySelector('.acc-body');
+      if(item.classList.contains('open')){ body.style.maxHeight=null; item.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      else { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); body.style.maxHeight=body.scrollHeight+'px'; }
+    });
+  });
+  window.addEventListener('resize', function(){ document.querySelectorAll('.acc-item.open .acc-body').forEach(function(b){ b.style.maxHeight=b.scrollHeight+'px'; }); });
+  document.querySelectorAll('sup.cite a').forEach(function(a){ a.addEventListener('click', function(){ var li=document.getElementById(a.getAttribute('href').slice(1)); if(li){ li.classList.remove('flash'); void li.offsetWidth; li.classList.add('flash'); } }); });
+})();
+</script>
+
+
+<div id="adshare" aria-live="polite">
+  <button id="adshare-btn" type="button">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+    Compartilhar
+  </button>
+  <div id="adshare-panel" hidden>
+    <div class="adshare-h">Compartilhar este material</div>
+    <img id="adshare-qr" width="200" height="200" alt="QR code do material">
+    <p class="adshare-hint">Aponte a câmera do celular para o QR</p>
+    <a id="adshare-wa" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+      Enviar no WhatsApp
+    </a>
+    <button id="adshare-copy" type="button">Copiar link</button>
+  </div>
+</div>
+<style>
+#adshare{position:fixed;right:16px;bottom:16px;z-index:9999;font-family:'Inter',system-ui,sans-serif}
+#adshare-btn{display:inline-flex;align-items:center;gap:8px;background:#00995d;color:#fff;border:none;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,102,61,.35)}
+#adshare-btn:hover{background:#00663d}
+#adshare-panel{position:absolute;right:0;bottom:56px;width:264px;background:#fff;border:1px solid #e2e8e5;border-radius:16px;box-shadow:0 18px 50px rgba(0,54,52,.22);padding:18px;text-align:center}
+.adshare-h{font-size:14px;font-weight:700;color:#1a2420;margin-bottom:12px}
+#adshare-qr{border-radius:10px;background:#f5f4f0}
+.adshare-hint{font-size:12px;color:#7d8c86;margin:8px 0 14px}
+#adshare-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;border-radius:10px;padding:11px;font-size:14px;font-weight:700;margin-bottom:9px}
+#adshare-copy{width:100%;background:#eef4f2;color:#00663d;border:1px solid #d3ddd9;border-radius:10px;padding:11px;font-size:14px;font-weight:700;cursor:pointer}
+#adshare-copy:hover{background:#e6f7f0}
+@media print{#adshare{display:none}}
+</style>
+<script>
+(function(){
+  var url=location.href.split('#')[0];
+  var title=(document.title||'').split('—')[0].trim();
+  var qr=document.getElementById('adshare-qr');
+  qr.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data='+encodeURIComponent(url);
+  document.getElementById('adshare-wa').href='https://wa.me/?text='+encodeURIComponent(title+' — material Unimed Academic Detailing: '+url);
+  var btn=document.getElementById('adshare-btn'),panel=document.getElementById('adshare-panel');
+  btn.addEventListener('click',function(e){e.stopPropagation();panel.hidden=!panel.hidden;});
+  var copy=document.getElementById('adshare-copy');
+  copy.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(url).then(function(){copy.textContent='Link copiado!';setTimeout(function(){copy.textContent='Copiar link';},1600);});});
+  document.addEventListener('click',function(ev){if(!document.getElementById('adshare').contains(ev.target))panel.hidden=true;});
+})();
+</script>
+
+</body>
+</html>

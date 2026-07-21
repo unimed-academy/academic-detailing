@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca do Conhecimento — Unimed Academic Detailing</title>
+<meta name="description" content="Portal de conhecimento clínico do programa Academic Detailing da Faculdade Unimed. Sínteses de evidência, isentas de interesse comercial, para apoiar a decisão à beira do leito.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ============ shadcn-style tokens sobre a marca Unimed ============ */
+:root{
+  /* marca Unimed */
+  --g1:#00995d;        /* verde Unimed */
+  --g1d:#00663d;
+  --g3:#004e4c;        /* teal escuro */
+  --g3d:#003634;
+  --citric:#b1d34b;    /* verde cítrico (acento) */
+  --or:#f47920;        /* laranja */
+  --red:#b52828;
+
+  /* tokens semânticos (shadcn) */
+  --background:#f6f7f5;
+  --foreground:#12201b;
+  --card:#ffffff;
+  --card-foreground:#12201b;
+  --muted:#eef2ef;
+  --muted-foreground:#5c6b64;
+  --subtle:#7d8c86;
+  --primary:#00995d;
+  --primary-foreground:#ffffff;
+  --border:#e3e9e5;
+  --border-strong:#d3ddd9;
+  --ring:#00995d;
+  --soft:#e6f7f0;
+  --radius:14px;
+
+  --shadow-sm:0 1px 2px rgba(0,54,52,.05);
+  --shadow:0 1px 3px rgba(0,54,52,.06),0 10px 30px rgba(0,54,52,.07);
+  --shadow-lg:0 24px 60px rgba(0,54,52,.14);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--background);
+  color:var(--foreground);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+::selection{background:var(--citric);color:var(--g3d)}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ============ util ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:inherit;font-size:14.5px;font-weight:600;letter-spacing:-.1px;
+  border-radius:11px;padding:12px 20px;cursor:pointer;border:1px solid transparent;
+  transition:transform .12s ease,background .18s,box-shadow .18s,border-color .18s;
+  white-space:nowrap;line-height:1;
+}
+.btn svg{flex-shrink:0}
+.btn-primary{background:var(--primary);color:var(--primary-foreground);box-shadow:0 4px 14px rgba(0,153,93,.35)}
+.btn-primary:hover{background:var(--g1d);transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,153,93,.4)}
+.btn-outline{background:transparent;border-color:var(--border-strong);color:var(--foreground)}
+.btn-outline:hover{background:var(--muted);border-color:var(--subtle)}
+.btn-ghost-light{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(6px)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.16)}
+.btn-lg{padding:15px 26px;font-size:15.5px;border-radius:12px}
+
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 11px;border-radius:20px;line-height:1;
+}
+.badge-soft{background:var(--soft);color:var(--g1d)}
+.badge-outline{background:transparent;border:1px solid var(--border-strong);color:var(--muted-foreground)}
+.badge-citric{background:rgba(177,211,75,.22);color:#4d6b1f}
+.badge-orange{background:#fff1e4;color:#a8500a}
+.badge-muted{background:var(--muted);color:var(--muted-foreground)}
+
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g1)}
+
+/* ============ NAVBAR ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,247,245,.82);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-in{display:flex;align-items:center;gap:18px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{width:40px;height:40px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:var(--shadow-sm)}
+.brand-mark svg{width:40px;height:40px}
+.brand-txt .nm{font-size:15.5px;font-weight:800;letter-spacing:-.3px;line-height:1.1}
+.brand-txt .sb{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:14px}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--muted-foreground);padding:9px 14px;border-radius:9px;transition:background .16s,color .16s}
+.nav-links a:hover{background:var(--muted);color:var(--foreground)}
+.nav-spacer{flex:1}
+.nav-actions{display:flex;align-items:center;gap:10px}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 82% -8%, rgba(177,211,75,.20), transparent 60%),
+    radial-gradient(700px 500px at 8% 110%, rgba(0,153,93,.28), transparent 55%),
+    linear-gradient(140deg,var(--g3) 0%,var(--g3d) 62%,#012826 100%);
+  color:#fff;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 82%);
+}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:78px 0 88px}
+.hero-kicker{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:30px;font-size:12px;font-weight:600;letter-spacing:.04em;margin-bottom:24px}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--citric);box-shadow:0 0 0 4px rgba(177,211,75,.25)}
+.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.04;font-weight:900;letter-spacing:-1.4px;margin-bottom:22px}
+.hero h1 .hl{color:var(--citric)}
+.hero-lead{font-size:18px;line-height:1.62;color:rgba(255,255,255,.82);max-width:52ch;margin-bottom:32px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.hstat .v{font-size:28px;font-weight:800;letter-spacing:-.6px;line-height:1}
+.hstat .v small{font-size:15px;font-weight:700;color:var(--citric)}
+.hstat .k{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.02em}
+
+/* hero visual: card empilhado */
+.hero-visual{position:relative;min-height:340px}
+.hcard{
+  position:absolute;background:#fff;color:var(--foreground);
+  border-radius:18px;box-shadow:var(--shadow-lg);padding:22px;
+}
+.hcard-1{inset:0 22px 40px 0;z-index:2}
+.hcard-2{top:44px;right:0;left:60px;bottom:0;z-index:1;opacity:.55;transform:rotate(3deg)}
+.hcard-tag{display:inline-flex;align-items:center;gap:6px;background:var(--soft);color:var(--g1d);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:16px}
+.hcard h3{font-size:19px;font-weight:800;letter-spacing:-.4px;line-height:1.22;margin-bottom:14px}
+.hcard .krow{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--border)}
+.hcard .krow .n{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--g1);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.hcard .krow p{font-size:13.5px;color:var(--muted-foreground);line-height:1.45}
+.hcard .krow p b{color:var(--foreground)}
+.hcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12.5px;color:var(--subtle);font-weight:600}
+.hcard-foot .go{display:inline-flex;align-items:center;gap:6px;color:var(--g1);font-weight:700}
+
+/* ============ FAIXA DE BUSCA / FILTROS ============ */
+.section{padding:76px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px;flex-wrap:wrap}
+.section-head .eyebrow{margin-bottom:10px}
+.section-head h2{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.8px;line-height:1.1}
+.section-head p{font-size:16px;color:var(--muted-foreground);margin-top:10px;max-width:60ch}
+
+.searchwrap{margin-top:-40px;position:relative;z-index:10}
+.searchbar{
+  display:flex;align-items:center;gap:14px;background:var(--card);
+  border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
+  padding:8px 8px 8px 20px;
+}
+.searchbar svg{color:var(--subtle);flex-shrink:0}
+.searchbar input{flex:1;border:none;outline:none;font-family:inherit;font-size:16px;color:var(--foreground);background:transparent;padding:12px 0}
+.searchbar input::placeholder{color:var(--subtle)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  font-size:13.5px;font-weight:600;color:var(--muted-foreground);
+  background:var(--card);border:1px solid var(--border);border-radius:30px;padding:9px 16px;
+  transition:all .16s;
+}
+.chip:hover{border-color:var(--border-strong);color:var(--foreground)}
+.chip.active{background:var(--g3);border-color:var(--g3);color:#fff}
+.chip .ct{font-size:11px;font-weight:700;opacity:.7}
+
+/* ============ GRID DE CONTEÚDO ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.card{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.card-top{position:relative;height:118px;overflow:hidden;display:flex;align-items:flex-end;padding:16px}
+.card-top.g-lab{background:linear-gradient(135deg,#00995d,#004e4c)}
+.card-top.g-nutri{background:linear-gradient(135deg,#5aa646,#00663d)}
+.card-top.g-presc{background:linear-gradient(135deg,#0b8f9c,#004e4c)}
+.card-top.g-prev{background:linear-gradient(135deg,#e08a2b,#a8500a)}
+.card-top::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:18px 18px;opacity:.5}
+.card-top .cat{position:relative;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;backdrop-filter:blur(4px)}
+.card-top .icon{position:absolute;right:-8px;bottom:-24px;color:#fff;opacity:.22;pointer-events:none;z-index:0}
+.card-top .icon svg{width:138px;height:138px;display:block}
+.card-top .cat{z-index:1}
+.card-body{padding:20px 20px 18px;display:flex;flex-direction:column;flex:1}
+.card-body h3{font-size:18.5px;font-weight:800;letter-spacing:-.4px;line-height:1.22;margin-bottom:9px}
+.card-body p{font-size:14px;color:var(--muted-foreground);line-height:1.5;flex:1}
+.card-meta{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:15px;border-top:1px solid var(--border);font-size:12.5px;color:var(--subtle);font-weight:500}
+.card-meta .m{display:inline-flex;align-items:center;gap:6px}
+.card-meta .m svg{color:var(--subtle)}
+.card-cta{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--g1);font-weight:700}
+.card.soon{opacity:.92}
+.card.soon .card-top{filter:saturate(.55)}
+.card.soon .card-cta{color:var(--subtle)}
+
+/* ============ COMO FUNCIONA / SOBRE ============ */
+.about{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pillar{background:var(--background);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.pillar .pi{width:44px;height:44px;border-radius:11px;background:var(--soft);color:var(--g1d);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.pillar h4{font-size:16px;font-weight:700;letter-spacing:-.2px;margin-bottom:7px}
+.pillar p{font-size:13.5px;color:var(--muted-foreground);line-height:1.5}
+.about-copy .eyebrow{margin-bottom:12px}
+.about-copy h2{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.9px;line-height:1.1;margin-bottom:18px}
+.about-copy p{font-size:16px;color:var(--muted-foreground);line-height:1.65;margin-bottom:16px}
+.about-copy p b{color:var(--foreground);font-weight:600}
+
+/* ============ CTA FINAL ============ */
+.cta-final{
+  position:relative;overflow:hidden;border-radius:24px;
+  background:linear-gradient(130deg,var(--g1) 0%,var(--g3) 70%);
+  color:#fff;padding:56px;text-align:center;box-shadow:var(--shadow-lg);
+}
+.cta-final::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%)}
+.cta-final .in{position:relative;z-index:1}
+.cta-final h2{font-size:clamp(26px,3.4vw,40px);font-weight:900;letter-spacing:-1px;line-height:1.08;margin-bottom:16px}
+.cta-final p{font-size:17px;color:rgba(255,255,255,.85);max-width:56ch;margin:0 auto 30px}
+.cta-final .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ============ FOOTER ============ */
+.footer{padding:56px 0 40px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.footer .brand{margin-bottom:16px}
+.footer-about{font-size:13.5px;color:var(--muted-foreground);line-height:1.6;max-width:38ch}
+.footer h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-bottom:16px}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer ul a{font-size:14px;color:var(--muted-foreground);transition:color .15s}
+.footer ul a:hover{color:var(--g1)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:26px;flex-wrap:wrap}
+.footer-bottom p{font-size:12.5px;color:var(--subtle);line-height:1.6}
+.footer-bottom .made{font-size:12.5px;color:var(--subtle)}
+
+/* ============ RESPONSIVO (tablet + desktop) ============ */
+@media (max-width:980px){
+  .hero-in{grid-template-columns:1fr;gap:40px;padding:60px 0 70px}
+  .hero-visual{min-height:300px;max-width:520px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-links{display:none}
+}
+@media (max-width:640px){
+  .container{padding:0 18px}
+  .nav-in{height:62px}
+  .brand-txt .sb{display:none}
+  .hero-stats{gap:24px}
+  .pillars{grid-template-columns:1fr}
+  .cta-final{padding:40px 26px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+  .searchwrap{margin-top:-30px}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="nav">
+  <div class="container nav-in">
+    <a href="#" class="brand">
+      <span class="brand-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 552"><rect width="552" height="552" rx="60" fill="#00995d"/>
+        <g transform="translate(0,276) scale(0.1,-0.1)" fill="#FFF" stroke="none">
+          <path d="m3449 1267 c24 -12 54 -50 531 -682 145 -192 359 -476 476 -631 117 -155 216 -292 219 -305 3 -14 0 -32 -9 -44 -14 -19 -29 -20 -350 -25 -295 -4 -337 -7 -352 -22 -11 -11 -14 -24 -10 -40 3 -12 119 -175 256 -361 138 -186 253 -350 256 -364 5 -18 1 -31 -15 -46 -21 -22 -26 -22 -462 -25 -383 -2 -444 -1 -472 13 -20 10 -60 54 -107 118 -41 56 -122 167 -181 247 -245 331 -298 405 -302 422 -12 42 13 48 214 48 176 0 190 1 209 20 11 11 20 29 20 40 0 16 -162 240 -450 621 -81 107 -85 115 -65 145 l15 24 205 0 c237 0 274 8 275 62 0 10 -115 171 -256 358 -234 310 -260 341 -295 352 -30 8 -48 8 -78 0 -35 -11 -61 -42 -288 -345 -137 -182 -253 -341 -256 -351 -12 -30 1 -53 35 -65 18 -7 114 -11 233 -11 189 0 203 -1 220 -20 15 -16 16 -25 8 -43 -6 -13 -126 -178 -267 -366 -141 -189 -256 -351 -256 -360 0 -10 6 -26 14 -37 13 -17 31 -19 216 -24 215 -5 228 -9 210 -56 -7 -19 -160 -230 -345 -476 -27 -37 -86 -117 -130 -177 -44 -61 -93 -117 -110 -126 -27 -14 -80 -16 -471 -13 -424 3 -443 4 -464 23 -16 14 -20 27 -16 47 3 15 58 99 123 186 429 580 410 550 380 580 -16 15 -52 18 -353 22 -318 5 -336 6 -350 24 -8 11 -14 25 -14 30 0 19 39 76 214 314 94 129 187 255 206 282 38 53 236 324 552 757 140 190 207 275 226 282 43 15 1381 14 1411 -2z"/>
+        </g></svg>
+      </span>
+      <span class="brand-txt">
+        <span class="nm">Academic Detailing</span>
+        <span class="sb">Biblioteca do Conhecimento · Unimed</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#programa">O programa</a>
+    </nav>
+    <span class="nav-spacer"></span>
+    <div class="nav-actions">
+      <a href="#biblioteca" class="btn btn-outline">Explorar materiais</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero-in">
+    <div class="hero-copy">
+      <span class="hero-kicker"><span class="dot"></span> Educação médica baseada em evidência · isenta de interesse comercial</span>
+      <h1>A melhor síntese da evidência, <span class="hl">na hora da decisão clínica.</span></h1>
+      <p class="hero-lead">A biblioteca de conhecimento do programa <b style="color:#fff">Academic Detailing</b> da Faculdade Unimed. Conteúdo clínico autoral, revisado por pares e desenhado para a visita ao médico da rede — poucas mensagens-chave, evidência sólida por trás.</p>
+      <div class="hero-cta">
+        <a href="#biblioteca" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Abrir a biblioteca
+        </a>
+        <a href="#programa" class="btn btn-ghost-light btn-lg">Como funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="v">6<small> materiais</small></div><div class="k">Publicados e disponíveis</div></div>
+        <div class="hstat"><div class="v">5</div><div class="k">Temas clínicos</div></div>
+        <div class="hstat"><div class="v">100%</div><div class="k">Revisado por pares</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- card fantasma atrás -->
+      <div class="hcard hcard-2">
+        <span class="hcard-tag">Também na biblioteca</span>
+        <h3>TSH isolado no rastreio da tireoide</h3>
+      </div>
+      <!-- card destaque: Vitamina D -->
+      <a href="vitamina-d.html" class="hcard hcard-1">
+        <span class="hcard-tag">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          Material em destaque
+        </span>
+        <h3>Dosagem de Vitamina D em adultos assintomáticos</h3>
+        <div class="krow"><span class="n">1</span><p>Evidências <b>não embasam a solicitação rotineira</b> em adultos assintomáticos.</p></div>
+        <div class="krow"><span class="n">2</span><p>Reservar o exame para <b>fatores de risco e indicações clínicas</b> definidas.</p></div>
+        <div class="hcard-foot">
+          <span>~6 min de leitura · 9 referências</span>
+          <span class="go">Abrir <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BUSCA + FILTROS ========== -->
+<div class="container" id="biblioteca">
+  <div class="searchwrap">
+    <label class="searchbar">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="text" placeholder="Buscar por tema, exame ou palavra-chave — ex.: vitamina D, rastreamento…" autocomplete="off">
+      <span class="btn btn-primary" style="pointer-events:none">Buscar</span>
+    </label>
+    <div class="chips" id="chips">
+      <span class="chip active" data-cat="all">Todos <span class="ct">6</span></span>
+      <span class="chip" data-cat="renal">Função renal <span class="ct">1</span></span>
+      <span class="chip" data-cat="hepatica">Função hepática <span class="ct">1</span></span>
+      <span class="chip" data-cat="tireoide">Tireoide <span class="ct">1</span></span>
+      <span class="chip" data-cat="inflamacao">Inflamação <span class="ct">1</span></span>
+      <span class="chip" data-cat="vitaminas">Vitaminas e nutrientes <span class="ct">2</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== GRID DE MATERIAIS ========== -->
+<section class="section" style="padding-top:48px" id="categorias">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Materiais</div>
+        <h2>Biblioteca de visual aids</h2>
+        <p>Cada material traz mensagens-chave no topo e o aprofundamento com evidência logo abaixo — pronto para a visita e para consulta rápida depois.</p>
+      </div>
+      <span class="badge badge-outline" id="count">6 materiais disponíveis</span>
+    </div>
+
+    <div class="grid" id="grid">
+
+      <!-- Vitamina D -->
+      <a class="card" href="vitamina-d.html" data-cat="vitaminas" data-title="dosagem de vitamina d em adultos assintomaticos 25 hidroxivitamina rastreamento vitaminas nutrientes">
+        <div class="card-top g-nutri">
+          <span class="cat">Exames Laboratoriais</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>Dosagem de Vitamina D em adultos assintomáticos</h3>
+          <p>Quando solicitar — e quando não solicitar — a 25(OH)D na prática clínica, segundo as diretrizes mais recentes.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~6 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 9 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Ureia -->
+      <a class="card" href="ureia.html" data-cat="renal" data-title="ureia creatinina funcao renal tfge rac kdigo rastreamento choosing wisely">
+        <div class="card-top g-lab">
+          <span class="cat">Exames Laboratoriais</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M14 3.2C8.8 2.9 4.4 6.8 4 12s3 9.3 7.7 9.6c2.1.1 3.5-1.2 3.4-3-.1-1.4-1.1-2.3-2-3.1-1-.8-1.9-1.6-1.8-3 .1-1.7 1.6-2.9 3.3-2.7 1 .1 1.7.7 2.5 1.2.9.6 2.1.3 2.4-.9C22 7.7 19.9 3.6 14 3.2z"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>Ureia no rastreamento da função renal</h3>
+          <p>Por que a ureia não deve ser rotina — e o que usar no lugar: creatinina com TFGe e relação albumina/creatinina.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 9 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- TGO/TGP -->
+      <a class="card" href="tgo-tgp.html" data-cat="hepatica" data-title="tgo tgp ast alt transaminase funcao hepatica figado painel choosing wisely">
+        <div class="card-top g-presc">
+          <span class="cat">Exames Laboratoriais</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M2.5 7c6-2.5 13-2.5 19 0 .2 5.2-3.3 9.4-8.4 9.4-1.8 0-3-.9-3.9-2-.9.6-1.9 1.1-3 1.1-2.3 0-3.6-1.9-3.6-4.3 0-1.6.2-2.9-.6-4.2z"/><path d="M13.5 9c1.6.4 3.2.5 4.8.1" stroke-width="1.1"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>TGO junto da TGP: quando desacoplar</h3>
+          <p>Por que a TGO agrega pouco quando a TGP já foi pedida no painel hepático de rotina — e quando reservá-la.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- VHS -->
+      <a class="card" href="vhs.html" data-cat="inflamacao" data-title="vhs velocidade de hemossedimentacao pcr proteina c reativa inflamacao marcador choosing wisely">
+        <div class="card-top g-prev">
+          <span class="cat">Exames Laboratoriais</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.5h6M10 2.5v14.6a2 2 0 0 0 4 0V2.5"/><path d="M10 12.2h4"/><circle cx="12" cy="14.8" r=".55" fill="currentColor" stroke="none"/><circle cx="10.9" cy="16.4" r=".55" fill="currentColor" stroke="none"/><circle cx="13.1" cy="16.5" r=".55" fill="currentColor" stroke="none"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>VHS: prefira a PCR como marcador de inflamação</h3>
+          <p>Por que a VHS não serve de triagem em assintomáticos — e por que a PCR deve ser o marcador principal.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~6 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 8 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- TSH -->
+      <a class="card" href="tsh.html" data-cat="tireoide" data-title="tsh t4 livre t3 livre tireoide hipotireoidismo levotiroxina rastreio choosing wisely">
+        <div class="card-top g-lab">
+          <span class="cat">Exames Laboratoriais</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="7.6" cy="13.2" rx="3.3" ry="4.4" transform="rotate(-12 7.6 13.2)"/><ellipse cx="16.4" cy="13.2" rx="3.3" ry="4.4" transform="rotate(12 16.4 13.2)"/><path d="M10.1 12.3h3.8"/><path d="M12 12.3V6.2"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>TSH isolado no rastreio da tireoide</h3>
+          <p>Por que o TSH sozinho basta na maioria dos casos — e quando realmente pedir T4 livre e T3 livre.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Ácido fólico -->
+      <a class="card" href="acido-folico.html" data-cat="vitaminas" data-title="acido folico folato serico eritrocitario rbc fortificacao anemia macrocitica vitaminas nutrientes choosing wisely">
+        <div class="card-top g-nutri">
+          <span class="cat">Exames Laboratoriais</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C3 12 8 3.5 20.5 3.5 20.5 16 12 21 4 20z"/><path d="M4 20 15.5 8.5"/><path d="M12 12.5l3-1M8.5 16l3-1" stroke-width="1.1"/></svg></span>
+        </div>
+        <div class="card-body">
+          <h3>Ácido fólico: quando (não) dosar</h3>
+          <p>Por que a deficiência isolada é rara pós-fortificação — e quando reservar a dosagem ou suplementar sem dosar.</p>
+          <div class="card-meta">
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
+            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
+            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <p id="empty" style="display:none;text-align:center;color:var(--muted-foreground);padding:40px 0;font-size:15px">Nenhum material encontrado para essa busca.</p>
+  </div>
+</section>
+
+<!-- ========== SOBRE / COMO FUNCIONA ========== -->
+<section class="about section" id="programa">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <div class="eyebrow">O programa</div>
+      <h2>O que é Academic Detailing</h2>
+      <p>É uma estratégia de educação médica continuada em que consultores capacitados visitam médicos da rede para levar <b>conteúdo clínico atualizado, embasado em evidência e sem interesse comercial</b>.</p>
+      <p>Nasceu como resposta ao <i>detailing</i> farmacêutico: usa o mesmo canal — a visita individual, a conversa de igual para igual, o material de apoio bem desenhado — mas inverte a lógica. Em vez de vender um produto, entrega a melhor síntese disponível da literatura para apoiar a decisão clínica.</p>
+      <p style="margin-bottom:0">Esta biblioteca concentra todo o conhecimento gerado pelo programa: cada <b>visual aid</b> validado pela equipe acadêmica da Unimed fica aqui, disponível para consulta antes, durante e depois da visita.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h8M8 8h8M8 16h5"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></div>
+        <h4>Isenção comercial</h4>
+        <p>Conteúdo acadêmico e autoral, produzido por pares. A credibilidade vem de não haver produto sendo empurrado.</p>
+      </div>
+      <div class="pillar">
+        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h4>Revisado por pares</h4>
+        <p>Cada material passa por curadoria e validação acadêmica interna antes de chegar à visita.</p>
+      </div>
+      <div class="pillar">
+        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h4>Enxuto e visual</h4>
+        <p>Poucas mensagens-chave no topo, evidência e aprofundamento logo abaixo. Feito para ser usado, não arquivado.</p>
+      </div>
+      <div class="pillar">
+        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Relacionamento</h4>
+        <p>O valor se constrói em ciclos de visita e no vínculo com o médico da rede — não numa entrega única.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA FINAL ========== -->
+<section class="section">
+  <div class="container">
+    <div class="cta-final">
+      <div class="in">
+        <h2>Todo o conhecimento do programa, num só lugar.</h2>
+        <p>Explore os materiais publicados ou acompanhe os próximos temas em produção pela equipe acadêmica da Faculdade Unimed.</p>
+        <div class="btns">
+          <a href="#biblioteca" class="btn btn-primary btn-lg" style="background:#fff;color:var(--g1d);box-shadow:0 8px 24px rgba(0,0,0,.18)">Abrir a biblioteca</a>
+          <a href="#programa" class="btn btn-ghost-light btn-lg">Conhecer o programa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <span class="brand-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 552"><rect width="552" height="552" rx="60" fill="#00995d"/>
+            <g transform="translate(0,276) scale(0.1,-0.1)" fill="#FFF" stroke="none">
+              <path d="m3449 1267 c24 -12 54 -50 531 -682 145 -192 359 -476 476 -631 117 -155 216 -292 219 -305 3 -14 0 -32 -9 -44 -14 -19 -29 -20 -350 -25 -295 -4 -337 -7 -352 -22 -11 -11 -14 -24 -10 -40 3 -12 119 -175 256 -361 138 -186 253 -350 256 -364 5 -18 1 -31 -15 -46 -21 -22 -26 -22 -462 -25 -383 -2 -444 -1 -472 13 -20 10 -60 54 -107 118 -41 56 -122 167 -181 247 -245 331 -298 405 -302 422 -12 42 13 48 214 48 176 0 190 1 209 20 11 11 20 29 20 40 0 16 -162 240 -450 621 -81 107 -85 115 -65 145 l15 24 205 0 c237 0 274 8 275 62 0 10 -115 171 -256 358 -234 310 -260 341 -295 352 -30 8 -48 8 -78 0 -35 -11 -61 -42 -288 -345 -137 -182 -253 -341 -256 -351 -12 -30 1 -53 35 -65 18 -7 114 -11 233 -11 189 0 203 -1 220 -20 15 -16 16 -25 8 -43 -6 -13 -126 -178 -267 -366 -141 -189 -256 -351 -256 -360 0 -10 6 -26 14 -37 13 -17 31 -19 216 -24 215 -5 228 -9 210 -56 -7 -19 -160 -230 -345 -476 -27 -37 -86 -117 -130 -177 -44 -61 -93 -117 -110 -126 -27 -14 -80 -16 -471 -13 -424 3 -443 4 -464 23 -16 14 -20 27 -16 47 3 15 58 99 123 186 429 580 410 550 380 580 -16 15 -52 18 -353 22 -318 5 -336 6 -350 24 -8 11 -14 25 -14 30 0 19 39 76 214 314 94 129 187 255 206 282 38 53 236 324 552 757 140 190 207 275 226 282 43 15 1381 14 1411 -2z"/>
+            </g></svg>
+          </span>
+          <span class="brand-txt">
+            <span class="nm" style="font-size:15px">Academic Detailing</span>
+            <span class="sb" style="display:block">Faculdade Unimed</span>
+          </span>
+        </div>
+        <p class="footer-about">Biblioteca de conhecimento clínico do programa Academic Detailing. Conteúdo de caráter educacional; as condutas devem ser individualizadas conforme avaliação clínica.</p>
+      </div>
+      <div>
+        <h5>Materiais</h5>
+        <ul>
+          <li><a href="vitamina-d.html">Vitamina D</a></li>
+          <li><a href="ureia.html">Ureia / função renal</a></li>
+          <li><a href="tgo-tgp.html">TGO / TGP</a></li>
+          <li><a href="vhs.html">VHS</a></li>
+          <li><a href="tsh.html">TSH / T4L / T3L</a></li>
+          <li><a href="acido-folico.html">Ácido fólico</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Temas</h5>
+        <ul>
+          <li><a href="#biblioteca">Função renal</a></li>
+          <li><a href="#biblioteca">Função hepática</a></li>
+          <li><a href="#biblioteca">Tireoide</a></li>
+          <li><a href="#biblioteca">Inflamação</a></li>
+          <li><a href="#biblioteca">Vitaminas e nutrientes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Programa</h5>
+        <ul>
+          <li><a href="#programa">O que é</a></li>
+          <li><a href="#programa">Como funciona</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><strong>Unimed Academic Detailing</strong> — material de apoio à visita médica. Protótipo para validação · 2026.</p>
+      <p class="made">Sistema de marca Unimed CNU · UnimedSans</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var chips = document.querySelectorAll('.chip');
+  var cards = Array.from(document.querySelectorAll('#grid .card'));
+  var empty = document.getElementById('empty');
+  var count = document.getElementById('count');
+  var activeCat = 'all';
+
+  function apply(){
+    var term = (q.value || '').toLowerCase().trim();
+    var shown = 0;
+    cards.forEach(function(c){
+      var okCat = activeCat === 'all' || c.getAttribute('data-cat') === activeCat;
+      var okTerm = !term || (c.getAttribute('data-title') || '').indexOf(term) > -1;
+      var vis = okCat && okTerm;
+      c.style.display = vis ? '' : 'none';
+      if(vis) shown++;
+    });
+    empty.style.display = shown ? 'none' : 'block';
+    count.textContent = shown + (shown === 1 ? ' material' : ' materiais') + (shown === 1 ? ' disponível' : ' disponíveis');
+  }
+
+  q.addEventListener('input', apply);
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      chips.forEach(function(x){x.classList.remove('active')});
+      ch.classList.add('active');
+      activeCat = ch.getAttribute('data-cat');
+      apply();
+    });
+  });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>
