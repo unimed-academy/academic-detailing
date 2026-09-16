@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblioteca do Conhecimento — Consultoria Acadêmica</title>
-<meta name="description" content="Portal de conhecimento clínico do programa Consultoria Acadêmica da Seguros Unimed. Sínteses de evidência, isentas de interesse comercial, para apoiar a decisão à beira do leito.">
+<title>Dosagem de vitamina B12 — Consultoria Acadêmica</title>
+<meta name="description" content="Quando solicitar — e quando não solicitar — a dosagem sérica de vitamina B12 (cobalamina) em adultos, segundo NICE, ABRAN, BC Guidelines, AAFP e o consenso Delphi internacional.">
 <!-- ═══════════════════════════════════════════════════════════════════════
      CONSULTORIA ACADÊMICA — extensão de fontes + marca (Seguros Unimed)
      Include próprio da pele Academic Detailing; o Estilos_Fontes.html do DS
@@ -135,600 +135,553 @@ img,svg{display:block}
 </style>
 
 <style>
-/* CSS específico da Home (hero, cards, hero-visual, seção programa, footer) — retokenizado */
-
-/* ============ NAVBAR ============ */
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(246,247,245,.82);
-  backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid var(--border);
+/* CSS específico deste material — retokenizado */
+:root{
+  --tx:var(--foreground);--tx2:var(--text-secondary);--tx3:var(--muted-foreground);
+  --bg:var(--background);--sf:var(--card);--bd:var(--border);--bd2:var(--border-hover);
+  --mito:var(--red);--verd:var(--g1);--soft2:var(--muted-bg);
 }
-.nav-in{display:flex;align-items:center;gap:18px;height:68px}
-.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.brand-mark{width:40px;height:40px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:var(--shadow-sm)}
-.brand-mark svg{width:40px;height:40px}
-.brand-txt .nm{font-size:15.5px;font-weight:700;letter-spacing:-.3px;line-height:1.1}
-.brand-txt .sb{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:4px;margin-left:14px}
-.nav-links a{font-size:14.5px;font-weight:400;color:var(--muted-foreground);padding:9px 14px;border-radius:9px;transition:background .16s,color .16s}
-.nav-links a:hover{background:var(--muted);color:var(--foreground)}
-.nav-spacer{flex:1}
-.nav-actions{display:flex;align-items:center;gap:10px}
 
-/* ============ HERO ============ */
-.hero{
-  position:relative;overflow:hidden;color:#fff;
-  background:
-    linear-gradient(105deg, var(--sidebar) 0 46%, transparent 46%),
-    var(--grad-marca);
-}
-.hero::before{
-  content:"";position:absolute;right:-40px;top:-30px;width:420px;height:420px;
-  background:var(--logo-ad) center/contain no-repeat;opacity:.10;pointer-events:none;
-}
-.hero::after{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
-  background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 82%);
-}
-.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:78px 0 88px}
-.hero-kicker{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:24px}
-.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--citric);box-shadow:0 0 0 4px rgba(177,211,75,.25)}
-.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.04;font-weight:700;letter-spacing:-1.4px;margin-bottom:22px}
-.hero h1 .hl{color:var(--citric)}
-.hero-tagline{position:relative;z-index:1}
-.hero-lead{position:relative;z-index:1;font-size:18px;line-height:1.62;color:rgba(255,255,255,.82);max-width:52ch;margin-bottom:32px}
-.hero-cta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
-.hero-stats{position:relative;z-index:1;display:flex;gap:34px;flex-wrap:wrap}
-.hstat .v{font-size:28px;font-weight:700;letter-spacing:-.6px;line-height:1}
-.hstat .v small{font-size:15px;font-weight:700;color:var(--citric)}
-.hstat .k{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.02em}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 64px}
 
-/* hero visual: card empilhado */
-.hero-visual{position:relative;z-index:1;min-height:340px}
-.hcard{
-  position:absolute;background:#fff;color:var(--foreground);
-  border-radius:18px;box-shadow:var(--shadow-lg);padding:22px 22px 26px;
+/* ── BRAND BAR ── */
+.brandbar{background:linear-gradient(120deg,var(--g3) 0%,var(--g3d) 100%);color:#fff}
+.brandbar-in{max-width:900px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;gap:11px}
+.brand-ico{width:34px;height:34px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--grad-marca);display:flex;align-items:center;justify-content:center}
+.brand-nm{font-size:15px;font-weight:700;letter-spacing:-.2px;line-height:1.15}
+.brand-sub{font-size:10.5px;color:rgba(255,255,255,.55);letter-spacing:.07em;text-transform:uppercase;margin-top:1px}
+.brand-tag{font-size:11px;font-weight:700;color:var(--accent);margin-top:3px}
+.brand-spacer{flex:1}
+.brand-back{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.82);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:8px 13px;border-radius:9px;text-decoration:none;transition:background .16s}
+.brand-back:hover{background:rgba(255,255,255,.2)}
+
+/* ── HERO ── */
+.hero{padding:30px 0 8px}
+.kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--g1d);background:var(--soft);padding:4px 11px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.18;font-weight:700;letter-spacing:-.6px;color:var(--tx);margin-bottom:8px}
+.lead{font-size:16.5px;color:var(--tx2);max-width:66ch}
+
+/* ── META ── */
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+.meta-item{display:flex;align-items:center;gap:7px;background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:8px 12px}
+.meta-item svg{color:var(--g1);flex-shrink:0}
+.meta-k{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3);line-height:1.1}
+.meta-v{font-size:13px;font-weight:700;color:var(--tx);line-height:1.2}
+
+/* ── FICHA ── */
+.ficha{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0 4px}
+.ficha-card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.ficha-k{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tx3);margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--tx2);background:var(--soft2);border:1px solid var(--bd);border-radius:20px;padding:5px 11px}
+.tag svg{color:var(--g1)}
+.tag.spec{background:#fff;color:var(--tx)}
+
+/* ── RECOMENDAÇÃO PRÁTICA (keybox) ── */
+.keybox{background:linear-gradient(160deg,#ffffff 0%,#f3faf7 100%);border:1px solid var(--bd2);border-left:5px solid var(--g1);border-radius:14px;padding:24px;margin:26px 0 8px;box-shadow:var(--shadow)}
+.keybox-h{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.keybox-h svg{color:var(--g1);flex-shrink:0}
+.keybox-h h2{font-size:18px;font-weight:700;letter-spacing:-.2px}
+.keybox p.big{font-size:16.5px;line-height:1.55;color:var(--tx)}
+.keybox p.big strong{color:var(--g1d)}
+.keybox .do{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.do-item{flex:1 1 240px;display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.do-item .i{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.do-item.no .i{background:#fdecea;color:var(--red)}
+.do-item.yes .i{background:var(--soft);color:var(--g1d)}
+.do-item p{font-size:13.5px;color:var(--tx2);line-height:1.45;margin:0}
+.do-item p b{color:var(--tx)}
+
+/* ── separadores de seção ── */
+.deep-intro{display:flex;align-items:center;gap:10px;margin:38px 0 16px}
+.deep-intro .t{font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--tx3);white-space:nowrap}
+.deep-intro .ln{flex:1;height:1px;background:var(--bd)}
+.sec-lead{font-size:14.5px;color:var(--tx2);line-height:1.55;margin:-6px 0 16px}
+
+/* ── SÍNTESE (Q&A) ── */
+.qa{display:flex;flex-direction:column;gap:10px}
+.qa-item{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px 18px}
+.qa-q{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:700;color:var(--tx);line-height:1.4;margin-bottom:8px}
+.qa-q svg{flex-shrink:0;color:var(--g1);margin-top:2px}
+.qa-a{font-size:14.5px;color:var(--tx2);line-height:1.55;padding-left:26px}
+
+/* ── TABELA (indicações / fatores de risco / diretrizes) ── */
+.indic-wrap{margin:2px 0 6px}
+.indic-table{width:100%;border-collapse:collapse;background:var(--sf);border:1px solid var(--bd);border-radius:12px;overflow:hidden;font-size:14px}
+.indic-table thead th{background:var(--surface-2);color:var(--tx2);text-align:left;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:11px 14px;border-bottom:1px solid var(--bd)}
+.indic-table td{padding:11px 14px;border-bottom:1px solid var(--bd);color:var(--tx2);line-height:1.45;vertical-align:top}
+.indic-table tbody tr:nth-child(even){background:var(--soft2)}
+.indic-table tbody tr:last-child td{border-bottom:none}
+.indic-table td.cat{font-weight:700;color:var(--tx);white-space:nowrap}
+.indic-table td.src{white-space:nowrap;font-weight:700;color:var(--g1d)}
+.indic-note{font-size:12.5px;color:var(--tx3);line-height:1.5;margin:10px 2px 0;padding-left:14px;border-left:3px solid var(--bd)}
+
+/* ── APROFUNDAMENTO (accordion) ── */
+.deep-hint{font-size:13px;color:var(--tx3);margin:-6px 0 16px;display:flex;align-items:center;gap:6px}
+.acc{display:flex;flex-direction:column;gap:10px}
+.acc-item{background:var(--sf);border:1px solid var(--bd);border-radius:13px;overflow:hidden;transition:border-color .18s,box-shadow .18s}
+.acc-item.open{border-color:var(--bd2);box-shadow:var(--shadow)}
+.acc-head{width:100%;min-height:60px;display:flex;align-items:center;gap:14px;padding:14px 18px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;color:var(--tx);-webkit-tap-highlight-color:transparent}
+.acc-head:active{background:var(--soft2)}
+.acc-num{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--soft);color:var(--g1d);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.acc-title{flex:1;font-size:16px;font-weight:700;letter-spacing:-.1px;line-height:1.3}
+.acc-ico{flex-shrink:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--tx3);transition:transform .25s ease}
+.acc-item.open .acc-ico{transform:rotate(45deg);color:var(--g1)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc-inner{padding:2px 22px 22px 22px}
+.acc-inner p{font-size:15px;color:var(--tx2);margin-bottom:13px}
+.acc-inner p:last-child{margin-bottom:0}
+.acc-inner p strong{color:var(--tx)}
+.acc-inner .indic-wrap{margin-top:6px}
+
+/* ── ROTEIRO (recomendação prática numerada) ── */
+.roteiro{background:linear-gradient(160deg,#ffffff 0%,#f3faf7 100%);border:1px solid var(--bd2);border-radius:14px;padding:22px 24px;margin:6px 0 8px;box-shadow:var(--shadow)}
+.roteiro ol{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:12px}
+.roteiro li{counter-increment:st;position:relative;padding-left:40px;font-size:14.5px;color:var(--tx2);line-height:1.5}
+.roteiro li::before{content:counter(st);position:absolute;left:0;top:-1px;width:27px;height:27px;border-radius:8px;background:var(--g1);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ── VOCÊ SABIA ── */
+.didyou{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,var(--g3) 0%,var(--g3d) 100%);color:#fff;border-radius:14px;padding:20px 22px;margin:32px 0 8px;box-shadow:var(--shadow)}
+.didyou .ic{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:rgba(177,211,75,.2);color:var(--citric);display:flex;align-items:center;justify-content:center}
+.didyou .h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--citric);margin-bottom:6px}
+.didyou p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.9);margin:0}
+.didyou b{color:#fff}
+
+/* ── MÉTODO (details) ── */
+.method{margin:26px 0 4px;background:var(--soft2);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.method>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 18px;font-size:13.5px;font-weight:700;color:var(--tx2)}
+.method>summary::-webkit-details-marker{display:none}
+.method>summary .chev{margin-left:auto;transition:transform .25s ease;color:var(--tx3)}
+.method[open]>summary .chev{transform:rotate(90deg)}
+.method-in{padding:2px 20px 20px}
+.method-in h4{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g1d);margin:14px 0 7px}
+.method-in p{font-size:13.5px;color:var(--tx2);line-height:1.55;margin-bottom:8px}
+.method-in ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin:2px 0 8px}
+.method-in li{position:relative;padding-left:18px;font-size:13.5px;color:var(--tx2);line-height:1.5}
+.method-in li::before{content:"";position:absolute;left:4px;top:8px;width:6px;height:6px;border-radius:2px;background:var(--g1);transform:rotate(45deg)}
+
+/* ── CRÉDITO / COMITÊ ── */
+.credit{background:var(--soft2);border:1px solid var(--bd);border-radius:12px;padding:15px 17px;margin:26px 0 4px;font-size:13.5px;color:var(--tx2);line-height:1.55}
+.credit b{color:var(--tx)}
+
+/* ── citações ── */
+sup.cite{font-weight:700;font-size:11px;line-height:0}
+sup.cite a{color:var(--g1d);text-decoration:none;background:var(--soft);padding:1px 5px;border-radius:5px;margin-left:1px}
+
+/* ── REFERÊNCIAS ── */
+.refs{margin-top:40px;border-top:2px solid var(--bd);padding-top:22px}
+.refs h2{font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx2);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.refs h2 svg{color:var(--g1)}
+.refs ol{list-style:none;counter-reset:r;display:flex;flex-direction:column;gap:11px}
+.refs li{counter-increment:r;position:relative;padding-left:34px;font-size:13px;color:var(--tx2);line-height:1.5}
+.refs li::before{content:counter(r);position:absolute;left:0;top:0;width:23px;height:23px;border-radius:6px;background:var(--soft);color:var(--g1d);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.refs li a{color:var(--g1d);word-break:break-word}
+.refs li.flash{animation:fl 1.4s ease}
+@keyframes fl{0%,40%{background:#fff6d6;border-radius:8px}100%{background:transparent}}
+
+/* ── FOOTER ── */
+.foot{margin-top:36px;padding-top:20px;border-top:1px solid var(--bd);font-size:12px;color:var(--tx3);line-height:1.6}
+.foot strong{color:var(--tx2)}
+
+/* ── RESPONSIVO ── */
+@media (max-width:680px){
+  body{font-size:15.5px}
+  h1{font-size:25px}
+  .wrap{padding:0 14px 48px}
+  .keybox{padding:20px 18px}
+  .roteiro{padding:20px 18px}
+  .acc-inner{padding:2px 16px 18px}
+  .meta-item{flex:1 1 calc(50% - 8px)}
+  /* tabela vira cartões */
+  .indic-table,.indic-table tbody,.indic-table tr,.indic-table td{display:block;width:100%}
+  .indic-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .indic-table{border-radius:12px}
+  .indic-table tr{border-bottom:1px solid var(--bd);padding:6px 0}
+  .indic-table tbody tr:last-child{border-bottom:none}
+  .indic-table td{border-bottom:none;padding:6px 14px}
+  .indic-table td.cat{white-space:normal}
+  .indic-table td.src{white-space:normal}
+  .indic-table td::before{content:attr(data-label);display:block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--tx3);margin-bottom:3px}
 }
-.hcard-1{inset:0 22px 22px 0;z-index:2}
-.hcard-2{top:44px;right:0;left:60px;bottom:0;z-index:1;opacity:.55;transform:rotate(3deg)}
-.hcard-tag{display:inline-flex;align-items:center;gap:6px;background:var(--soft);color:var(--g1d);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:16px}
-.hcard h3{font-size:19px;font-weight:700;letter-spacing:-.4px;line-height:1.22;margin-bottom:14px}
-.hcard .krow{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--border)}
-.hcard .krow .n{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--g1);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
-.hcard .krow p{font-size:13.5px;color:var(--muted-foreground);line-height:1.45}
-.hcard .krow p b{color:var(--foreground)}
-.hcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12.5px;color:var(--subtle);font-weight:400}
-.hcard-foot .go{display:inline-flex;align-items:center;gap:6px;color:var(--g1);font-weight:700}
-
-/* ============ FAIXA DE BUSCA / FILTROS ============ */
-.section{padding:76px 0}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px;flex-wrap:wrap}
-.section-head .eyebrow{margin-bottom:10px}
-.section-head h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.8px;line-height:1.1}
-.section-head p{font-size:16px;color:var(--muted-foreground);margin-top:10px;max-width:60ch}
-
-.searchwrap{margin-top:-40px;position:relative;z-index:10}
-.searchbar{
-  display:flex;align-items:center;gap:14px;background:var(--card);
-  border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-  padding:8px 8px 8px 20px;
-}
-.searchbar svg{color:var(--subtle);flex-shrink:0}
-.searchbar input{flex:1;border:none;outline:none;font-family:inherit;font-size:16px;color:var(--foreground);background:transparent;padding:12px 0}
-.searchbar input::placeholder{color:var(--subtle)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{
-  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-  font-size:13.5px;font-weight:700;color:var(--muted-foreground);
-  background:var(--card);border:1px solid var(--border);border-radius:30px;padding:9px 16px;
-  transition:all .16s;
-}
-.chip:hover{border-color:var(--border-strong);color:var(--foreground)}
-.chip.active{background:var(--g3);border-color:var(--g3);color:#fff}
-.chip .ct{font-size:11px;font-weight:700;opacity:.7}
-
-/* ============ GRID DE CONTEÚDO ============ */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
-.card{
-  position:relative;display:flex;flex-direction:column;
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  overflow:hidden;box-shadow:var(--shadow-sm);
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
-}
-a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--border-strong)}
-.card-top{position:relative;height:118px;overflow:hidden;display:flex;align-items:flex-end;padding:16px}
-.card-top.g-lab{background:linear-gradient(135deg,var(--primary),var(--marinho))}
-.card-top.g-nutri{background:linear-gradient(135deg,#5aa646,var(--primary-hover))}
-.card-top.g-presc{background:linear-gradient(135deg,#0b8f9c,var(--marinho))}
-.card-top.g-prev{background:linear-gradient(135deg,#e08a2b,#a8500a)}
-.card-top.g-img{background:linear-gradient(135deg,#7d5fb8,#6B4FA0)}
-.card-top::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:18px 18px;opacity:.5}
-.card-top .cat{position:relative;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;backdrop-filter:blur(4px)}
-.card-top .icon{position:absolute;right:-8px;bottom:-24px;color:#fff;opacity:.22;pointer-events:none;z-index:0}
-.card-top .icon svg{width:138px;height:138px;display:block}
-.card-top .cat{z-index:1}
-.card-body{padding:20px 20px 18px;display:flex;flex-direction:column;flex:1}
-.card-body h3{font-size:18.5px;font-weight:700;letter-spacing:-.4px;line-height:1.22;margin-bottom:9px}
-.card-body p{font-size:14px;color:var(--muted-foreground);line-height:1.5;flex:1}
-.card-meta{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:15px;border-top:1px solid var(--border);font-size:12.5px;color:var(--subtle);font-weight:400}
-.card-meta .m{display:inline-flex;align-items:center;gap:6px}
-.card-meta .m svg{color:var(--subtle)}
-.card-cta{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--g1);font-weight:700}
-.card.soon{opacity:.92}
-.card.soon .card-top{filter:saturate(.55)}
-.card.soon .card-cta{color:var(--subtle)}
-
-/* ============ COMO FUNCIONA / SOBRE ============ */
-.about{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.pillar{background:var(--background);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
-.pillar .pi{width:44px;height:44px;border-radius:11px;background:var(--soft);color:var(--g1d);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.pillar h4{font-size:16px;font-weight:700;letter-spacing:-.2px;margin-bottom:7px}
-.pillar p{font-size:13.5px;color:var(--muted-foreground);line-height:1.5}
-.about-copy .eyebrow{margin-bottom:12px}
-.about-copy h2{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.9px;line-height:1.1;margin-bottom:18px}
-.about-copy p{font-size:16px;color:var(--muted-foreground);line-height:1.65;margin-bottom:16px}
-.about-copy p b{color:var(--foreground);font-weight:700}
-
-/* ============ CTA FINAL ============ */
-.cta-final{
-  position:relative;overflow:hidden;border-radius:24px;
-  background:linear-gradient(130deg,var(--g1) 0%,var(--g3) 70%);
-  color:#fff;padding:56px;text-align:center;box-shadow:var(--shadow-lg);
-}
-.cta-final::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%)}
-.cta-final .in{position:relative;z-index:1}
-.cta-final h2{font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.08;margin-bottom:16px}
-.cta-final p{font-size:17px;color:rgba(255,255,255,.85);max-width:56ch;margin:0 auto 30px}
-.cta-final .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-/* ============ FOOTER ============ */
-.footer{padding:56px 0 40px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border)}
-.footer .brand{margin-bottom:16px}
-.footer-about{font-size:13.5px;color:var(--muted-foreground);line-height:1.6;max-width:38ch}
-.footer h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-bottom:16px}
-.footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-.footer ul a{font-size:14px;color:var(--muted-foreground);transition:color .15s}
-.footer ul a:hover{color:var(--g1)}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:26px;flex-wrap:wrap}
-.footer-bottom p{font-size:12.5px;color:var(--subtle);line-height:1.6}
-.footer-bottom .made{font-size:12.5px;color:var(--subtle)}
-
-/* ============ RESPONSIVO (tablet + desktop) ============ */
-@media (max-width:980px){
-  .hero-in{grid-template-columns:1fr;gap:40px;padding:60px 0 70px}
-  .hero-visual{min-height:300px;max-width:520px}
-  .about-grid{grid-template-columns:1fr;gap:40px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .nav-links{display:none}
-}
-@media (max-width:640px){
-  .container{padding:0 18px}
-  .nav-in{height:62px}
-  .brand-txt .sb{display:none}
-  .hero-stats{gap:24px}
-  .pillars{grid-template-columns:1fr}
-  .cta-final{padding:40px 26px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
-  .searchwrap{margin-top:-30px}
+@media (max-width:420px){
+  h1{font-size:22px}
+  .meta-item{flex:1 1 100%}
 }
 </style>
 </head>
 <body>
 
-<!-- ========== NAVBAR ========== -->
-<header class="nav">
-  <div class="container nav-in">
-    <a href="#" class="brand">
-      <span class="brand-mark" style="background:var(--grad-marca);display:flex;align-items:center;justify-content:center">
-        <span style="width:26px;height:26px;background:var(--logo-ad) center/contain no-repeat"></span>
-      </span>
-      <span class="brand-txt">
-        <span class="nm">Consultoria Acadêmica</span>
-        <span class="sb">Biblioteca do Conhecimento · Unimed</span>
-      </span>
-    </a>
-    <nav class="nav-links">
-      <a href="#biblioteca">Biblioteca</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#programa">O programa</a>
-    </nav>
-    <span class="nav-spacer"></span>
-    <div class="nav-actions">
-      <a href="#biblioteca" class="btn btn-outline">Explorar materiais</a>
+<!-- BRAND BAR -->
+<header class="brandbar">
+  <div class="brandbar-in">
+    <a href="index.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit"><div class="brand-ico">
+      <span style="width:22px;height:22px;background:var(--logo-ad) center/contain no-repeat"></span>
     </div>
+    <div>
+      <div class="brand-nm">Consultoria Acadêmica</div>
+      <div class="brand-sub">Material de apoio · Visita médica</div>
+      <div class="brand-tag">A evolução contínua da prática médica baseada na ciência.</div>
+    </div>
+    </a><span class="brand-spacer"></span>
+    <a class="brand-back" href="index.html">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Biblioteca
+    </a>
   </div>
 </header>
 
-<!-- ========== HERO ========== -->
-<section class="hero">
-  <div class="container hero-in">
-    <div class="hero-copy">
-      <span class="hero-kicker"><span class="dot"></span> Educação médica baseada em evidência · isenta de interesse comercial</span>
-      <h1>A melhor síntese da evidência, <span class="hl">na hora da decisão clínica.</span></h1>
-      <p class="hero-tagline" style="color:var(--accent);font-weight:700;letter-spacing:.02em;margin:-8px 0 20px">A evolução contínua da prática médica baseada na ciência.</p>
-      <p class="hero-lead">A biblioteca de conhecimento do programa <b style="color:#fff">Consultoria Acadêmica</b> da Seguros Unimed. Conteúdo clínico autoral, revisado por pares e desenhado para a visita ao médico da rede — poucas mensagens-chave, evidência sólida por trás.</p>
-      <div class="hero-cta">
-        <a href="#biblioteca" class="btn btn-primary btn-lg">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          Abrir a biblioteca
-        </a>
-        <a href="#programa" class="btn btn-ghost-light btn-lg">Como funciona</a>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="kicker">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Exames Laboratoriais · Choosing Wisely
+    </span>
+    <h1>Dosagem de vitamina B12 (cobalamina)</h1>
+    <p class="lead">A triagem rotineira de vitamina B12 não deve ser solicitada em indivíduos assintomáticos e sem fatores de risco, pois a dosagem sérica apresenta correlação limitada com o quadro clínico.</p>
+
+    <div class="meta">
+      <div class="meta-item">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><div class="meta-k">Tempo de leitura</div><div class="meta-v">~7 minutos</div></div>
       </div>
-      <div class="hero-stats">
-        <div class="hstat"><div class="v">9<small> materiais</small></div><div class="k">Publicados e disponíveis</div></div>
-        <div class="hstat"><div class="v">7</div><div class="k">Temas clínicos</div></div>
-        <div class="hstat"><div class="v">100%</div><div class="k">Revisado por pares</div></div>
+      <div class="meta-item">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        <div><div class="meta-k">Publicação</div><div class="meta-v">Setembro/2026</div></div>
+      </div>
+      <div class="meta-item">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <div><div class="meta-k">Versão</div><div class="meta-v">1.0</div></div>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <!-- card fantasma atrás -->
-      <div class="hcard hcard-2">
-        <span class="hcard-tag">Também na biblioteca</span>
-        <h3>TSH isolado no rastreio da tireoide</h3>
-      </div>
-      <!-- card destaque: Vitamina D -->
-      <a href="vitamina-d.html" class="hcard hcard-1">
-        <span class="hcard-tag">
-          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-          Material em destaque
-        </span>
-        <h3>Dosagem de Vitamina D em adultos assintomáticos</h3>
-        <div class="krow"><span class="n">1</span><p>Evidências <b>não embasam a solicitação rotineira</b> em adultos assintomáticos.</p></div>
-        <div class="krow"><span class="n">2</span><p>Reservar o exame para <b>fatores de risco e indicações clínicas</b> definidas.</p></div>
-        <div class="hcard-foot">
-          <span>~6 min de leitura · 9 referências</span>
-          <span class="go">Abrir <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    <!-- FICHA -->
+    <div class="ficha">
+      <div class="ficha-card">
+        <div class="ficha-k">Especialidades relevantes</div>
+        <div class="tags">
+          <span class="tag spec">Clínica médica e Medicina de família e comunidade</span>
+          <span class="tag spec">Nutrologia</span>
+          <span class="tag spec">Hematologia</span>
+          <span class="tag spec">Gastroenterologia</span>
+          <span class="tag spec">Geriatria</span>
+          <span class="tag spec">Neurologia e Psiquiatria</span>
+          <span class="tag spec">Endocrinologia</span>
         </div>
-      </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========== BUSCA + FILTROS ========== -->
-<div class="container" id="biblioteca">
-  <div class="searchwrap">
-    <label class="searchbar">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="q" type="text" placeholder="Buscar por tema, exame ou palavra-chave — ex.: vitamina D, rastreamento…" autocomplete="off">
-      <span class="btn btn-primary" style="pointer-events:none">Buscar</span>
-    </label>
-    <div class="chips" id="chips">
-      <span class="chip active" data-cat="all">Todos <span class="ct">9</span></span>
-      <span class="chip" data-cat="seguranca">Segurança do paciente <span class="ct">1</span></span>
-      <span class="chip" data-cat="imagem">Exames de imagem <span class="ct">1</span></span>
-      <span class="chip" data-cat="renal">Função renal <span class="ct">1</span></span>
-      <span class="chip" data-cat="hepatica">Função hepática <span class="ct">1</span></span>
-      <span class="chip" data-cat="tireoide">Tireoide <span class="ct">1</span></span>
-      <span class="chip" data-cat="inflamacao">Inflamação <span class="ct">1</span></span>
-      <span class="chip" data-cat="vitaminas">Vitaminas e nutrientes <span class="ct">3</span></span>
+  <!-- RECOMENDAÇÃO PRÁTICA -->
+  <section class="keybox">
+    <div class="keybox-h">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <h2>Recomendação prática</h2>
+    </div>
+    <p class="big">Não solicitar B12 como <strong>rastreio de rotina</strong> em paciente assintomático e sem fator de risco identificável.<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref2">2</a></sup></p>
+    <div class="do">
+      <div class="do-item no">
+        <span class="i"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+        <p><b>Evite</b> a triagem de rotina em indivíduos saudáveis, sem achados clínicos ou fatores de risco.</p>
+      </div>
+      <div class="do-item yes">
+        <span class="i"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><b>Solicite</b> diante de sintoma sugestivo (achado hematológico inexplicado, queixa cognitiva, alteração visual, glossite, quadro neurológico ou fadiga inexplicada), idealmente associado a um fator de risco reconhecido.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÍNTESE DA EVIDÊNCIA -->
+  <div class="deep-intro"><span class="t">Síntese da evidência</span><span class="ln"></span></div>
+  <div class="qa">
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Devo solicitar dosagem de vitamina B12 como rastreio de rotina em paciente assintomático, sem fatores de risco?</div>
+      <div class="qa-a">Não. A triagem de rotina em indivíduos saudáveis, sem achados clínicos ou fatores de risco, não é recomendada, posição convergente entre British Columbia<sup class="cite"><a href="#ref1">1</a></sup>, UpToDate<sup class="cite"><a href="#ref2">2</a></sup> e ABRAN<sup class="cite"><a href="#ref3">3</a></sup>.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Quando a solicitação do exame é justificada?</div>
+      <div class="qa-a">Em pacientes sintomáticos com achados sugestivos de deficiência (alterações hematológicas, cognitivas, visuais ou neurológicas, glossite, fadiga inexplicada) ou em assintomáticos com fator de risco reconhecido (dieta restritiva, doença de má absorção, uso crônico de metformina, IBP ou anti-H2, cirurgia gastrointestinal prévia, entre outros).<sup class="cite"><a href="#ref5">5</a></sup><sup class="cite"><a href="#ref6">6</a></sup></div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Um nível sérico normal exclui deficiência, e um nível baixo sempre confirma o diagnóstico?</div>
+      <div class="qa-a">Não necessariamente. O resultado pode estar falsamente normal em câncer, doença hepática crônica, nefropatia, doenças autoimunes, gravidez e na presença de anticorpos interferentes, ou falsamente reduzido na presença de proteína monoclonal, mieloma múltiplo e infecção por HIV.<sup class="cite"><a href="#ref3">3</a></sup> Em valores limítrofes ou suspeita clínica persistente, deve-se complementar com ácido metilmalônico (MMA) e homocisteína.<sup class="cite"><a href="#ref2">2</a></sup></div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> Preciso repetir o exame para acompanhar o tratamento?</div>
+      <div class="qa-a">Depende do contexto clínico, mas não é rotina automática. Considerar repetição a partir de 2 meses após o início da terapia, principalmente diante de novos sintomas ou para verificar adesão e absorção do tratamento oral. A concentração sérica normaliza antes da resolução clínica completa, que pode levar de 4 a 8 semanas para a anemia e de 6 a 12 meses para os sinais neurológicos, portanto não é o melhor marcador de resposta terapêutica.<sup class="cite"><a href="#ref4">4</a></sup></div>
     </div>
   </div>
+
+  <!-- FATORES DE RISCO -->
+  <div class="deep-intro"><span class="t">Fatores de risco e medicamentos associados</span><span class="ln"></span></div>
+  <p class="sec-lead">A solicitação orientada por fator de risco é o eixo comum entre as diretrizes analisadas, e o quadro abaixo consolida as principais categorias de risco com a duração de exposição associada, quando disponível na fonte.<sup class="cite"><a href="#ref5">5</a></sup><sup class="cite"><a href="#ref6">6</a></sup></p>
+  <div class="indic-wrap">
+    <table class="indic-table">
+      <thead><tr><th>Categoria</th><th>Exemplos</th><th>Fonte</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="cat" data-label="Categoria">Dieta</td>
+          <td data-label="Exemplos">Dieta vegana ou pobre em alimentos de origem animal; exclusão de carne por crença religiosa; alergia a ovo, leite ou peixe; dificuldade de acesso a alimentos (renda, demência, fragilidade); dieta restrita por transtorno alimentar</td>
+          <td class="src" data-label="Fonte">NICE<sup class="cite"><a href="#ref5">5</a></sup></td>
+        </tr>
+        <tr>
+          <td class="cat" data-label="Categoria">Condições de saúde</td>
+          <td data-label="Exemplos">Gastrite atrófica de corpo gástrico; doença celíaca; doenças autoimunes (tireoide, síndrome de Sjögren, diabetes tipo 1); histórico familiar de deficiência de B12 ou doença autoimune</td>
+          <td class="src" data-label="Fonte">NICE<sup class="cite"><a href="#ref5">5</a></sup></td>
+        </tr>
+        <tr>
+          <td class="cat" data-label="Categoria">Medicamentos</td>
+          <td data-label="Exemplos">Metformina (uso por mais de 4 meses); inibidores de bomba de prótons e antagonistas H2 (uso por mais de 12 meses); colchicina; fenobarbital; pregabalina; primidona; topiramato</td>
+          <td class="src" data-label="Fonte">NICE<sup class="cite"><a href="#ref5">5</a></sup> e AAFP<sup class="cite"><a href="#ref6">6</a></sup></td>
+        </tr>
+        <tr>
+          <td class="cat" data-label="Categoria">Cirurgia ou procedimento prévio</td>
+          <td data-label="Exemplos">Cirurgia bariátrica (bypass em Y de Roux, gastrectomia vertical); gastrectomia; ressecção ileal terminal; radioterapia abdominal ou pélvica</td>
+          <td class="src" data-label="Fonte">NICE<sup class="cite"><a href="#ref5">5</a></sup></td>
+        </tr>
+        <tr>
+          <td class="cat" data-label="Categoria">Outros</td>
+          <td data-label="Exemplos">Uso recreativo de óxido nitroso</td>
+          <td class="src" data-label="Fonte">NICE<sup class="cite"><a href="#ref5">5</a></sup></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- APROFUNDAMENTO -->
+  <div class="deep-intro"><span class="t">Aprofundar o tema</span><span class="ln"></span></div>
+  <div class="deep-hint">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    Toque em um tópico para ver os detalhes e as evidências.
+  </div>
+
+  <div class="acc">
+
+    <!-- 1 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">1</span>
+        <span class="acc-title">Por que rever o uso da B12</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>A triagem rotineira de vitamina B12 não deve ser solicitada em indivíduos assintomáticos e sem fatores de risco, pois a dosagem sérica apresenta correlação limitada com o quadro clínico. Pacientes idosos podem apresentar níveis normais mesmo com deficiência clinicamente significativa, e usuárias de anticoncepcional oral podem apresentar níveis reduzidos sem deficiência real, devido à queda da proteína transportadora (haptocorrina). Soma-se a esses exemplos uma ampla zona indeterminada entre valores normais e anormais, além de variação dos intervalos de referência entre laboratórios.<sup class="cite"><a href="#ref1">1</a></sup></p>
+        <p>A interpretação isolada do resultado sérico também é limitada, estando sujeita a interferências analíticas relevantes. A concentração de cobalamina pode estar falsamente reduzida na presença de proteína monoclonal (doenças mieloproliferativas, mieloma múltiplo) e de infecção por HIV, e falsamente normal em câncer, doença hepática crônica, nefropatia, doenças autoimunes, gravidez e na presença de anticorpos interferentes.<sup class="cite"><a href="#ref3">3</a></sup></p>
+        <p>Diretrizes como a do National Institute for Health and Care Excellence (NICE) condicionam a solicitação à presença conjunta de sintoma e fator de risco, e não a cada critério isoladamente.<sup class="cite"><a href="#ref5">5</a></sup> Solicitar o exame fora do contexto de risco tende a gerar resultados de baixo valor interpretativo, sem reduzir o risco de diagnóstico tardio nos casos clinicamente relevantes. Não há demonstração de que o rastreio populacional melhore desfechos clínicos.<sup class="cite"><a href="#ref2">2</a></sup></p>
+      </div></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">2</span>
+        <span class="acc-title">Recomendações nacionais (ABRAN)</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>No Brasil, a Associação Brasileira de Nutrologia (ABRAN) publicou recomendações sobre a dosagem de cobalamina. As recomendações reconheceram por unanimidade que diversas condições podem interferir na determinação da concentração sérica de cobalamina, reduzindo-a (proteína monoclonal, infecção por HIV) ou mascarando-a em valores falsamente normais (câncer, doença hepática crônica, nefropatia, doenças autoimunes, gravidez, anticorpos interferentes). Houve concordância de 89% de que a dosagem deve ser solicitada em grupos de risco ou diante de condições clínicas sugestivas de deficiência, com o objetivo de iniciar tratamento precoce e evitar complicações. A proposta de medir os níveis de cobalamina rotineiramente em todos os pacientes obteve 33% de concordância.<sup class="cite"><a href="#ref3">3</a></sup></p>
+      </div></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">3</span>
+        <span class="acc-title">Recomendações internacionais</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>As fontes internacionais convergem quanto à ausência de indicação para rastreio populacional em assintomáticos sem fator de risco.<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref2">2</a></sup><sup class="cite"><a href="#ref4">4</a></sup><sup class="cite"><a href="#ref5">5</a></sup><sup class="cite"><a href="#ref6">6</a></sup></p>
+        <div class="indic-wrap">
+          <table class="indic-table">
+            <thead><tr><th>Órgão e ano</th><th>Posição sobre solicitação do exame</th><th>Natureza da recomendação</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="cat" data-label="Órgão e ano">NICE, 2024 (Reino Unido)<sup class="cite"><a href="#ref5">5</a></sup></td>
+                <td data-label="Posição">Testar quando houver ao menos 1 sintoma ou sinal comum e ao menos 1 fator de risco comum. Se houver apenas sintoma, sem fator de risco, usar julgamento clínico.</td>
+                <td data-label="Natureza">Recomendação clínica operacional, sem grau formal atribuído</td>
+              </tr>
+              <tr>
+                <td class="cat" data-label="Órgão e ano">Vitamin B12 Consensus Panelists Group, 2024 (painel internacional)<sup class="cite"><a href="#ref4">4</a></sup></td>
+                <td data-label="Posição">Atraso diagnóstico frequente por inespecificidade dos sintomas e desconhecimento dos fatores de risco. Recomenda dosagem anual em uso crônico de metformina.</td>
+                <td data-label="Natureza">Consenso por método Delphi (grau de concordância não quantificado para este item específico)</td>
+              </tr>
+              <tr>
+                <td class="cat" data-label="Órgão e ano">British Columbia, 2022 e 2023 (Canadá)<sup class="cite"><a href="#ref1">1</a></sup></td>
+                <td data-label="Posição">Contra triagem de rotina em assintomáticos. Testar sintomáticos com quadro sugestivo; em assintomáticos com fator de risco, considerar suplementação em vez do exame.</td>
+                <td data-label="Natureza">Diretriz regional, recomendação textual, sem grau formal</td>
+              </tr>
+              <tr>
+                <td class="cat" data-label="Órgão e ano">AAFP, 2017 (Estados Unidos)<sup class="cite"><a href="#ref6">6</a></sup></td>
+                <td data-label="Posição">Considerar triagem em pacientes com fatores de risco definidos por tempo de exposição (por exemplo, IBP ou anti-H2 por mais de 12 meses, metformina por mais de 4 meses); testar diante de suspeita clínica.</td>
+                <td data-label="Natureza">Recomendação textual, sem grau formal</td>
+              </tr>
+              <tr>
+                <td class="cat" data-label="Órgão e ano">UpToDate, 2025 (síntese de evidência)<sup class="cite"><a href="#ref2">2</a></sup></td>
+                <td data-label="Posição">Suspeitar diante de achados hematológicos, neuropsiquiátricos ou de dieta e condição de risco. Rastreio populacional debatido, sem evidência de melhora de desfecho ou de custo-efetividade.</td>
+                <td data-label="Natureza">Fonte de síntese clínica, não é diretriz de sociedade</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">4</span>
+        <span class="acc-title">Metabolismo e fisiopatologia</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>A vitamina B12 é sintetizada exclusivamente por microrganismos e obtida pela dieta a partir de alimentos de origem animal (carnes, ovos, laticínios). Sua absorção depende do fator intrínseco, glicoproteína produzida pelas células parietais gástricas, e ocorre no íleo terminal; por isso, doenças ou cirurgias que comprometam esse segmento prejudicam a absorção independentemente da ingestão alimentar. A deficiência interfere na síntese de DNA e afeta primariamente tecidos de alta renovação celular, como a medula óssea, o que explica o espectro de manifestações: anemia megaloblástica, neuropatia periférica, distúrbios cognitivos e, em casos avançados, degeneração combinada subaguda da medula espinhal.<sup class="cite"><a href="#ref2">2</a></sup></p>
+      </div></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">5</span>
+        <span class="acc-title">Diagnóstico laboratorial e testes confirmatórios</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>O exame inicial é a dosagem sérica de cobalamina, com valores geralmente classificados como normal (≥ 300 pg/mL), limítrofe (200 a 300 pg/mL) ou deficiência (&lt; 200 pg/mL). Como a concentração sérica não reflete de forma confiável os estoques intracelulares, casos limítrofes ou com suspeita clínica persistente devem ser complementados com marcadores metabólicos que se elevam na deficiência (ácido metilmalônico e homocisteína) antes de se descartar o diagnóstico com base apenas no valor sérico isolado.<sup class="cite"><a href="#ref2">2</a></sup></p>
+      </div></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">6</span>
+        <span class="acc-title">Cinética terapêutica e monitoramento</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>A resposta ao tratamento segue cinética própria: a melhora hematológica (anemia) costuma ocorrer entre 4 e 8 semanas, enquanto sinais neurológicos podem levar de 6 a 12 meses para resolução completa. Ausência de melhora nesses intervalos sugere reavaliar se os sintomas são de fato atribuíveis à deficiência de B12 ou se a dose e a via de administração precisam ser ajustadas. Como a concentração sérica normaliza-se antes da resolução clínica completa, ela não é um bom marcador isolado para acompanhar a resposta terapêutica, embora seja útil para identificar falta de adesão ou má absorção do tratamento oral.<sup class="cite"><a href="#ref4">4</a></sup> Quando a causa de base foi corrigida e o tratamento é suspenso, pode ser prudente reavaliar o hemograma ou a B12 sérica entre 3 e 12 meses após a interrupção.<sup class="cite"><a href="#ref7">7</a></sup></p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- RECOMENDAÇÃO PRÁTICA (ROTEIRO) -->
+  <div class="deep-intro"><span class="t">Recomendação prática — roteiro no consultório</span><span class="ln"></span></div>
+  <p class="sec-lead">Roteiro sugerido para orientar a decisão de solicitar a dosagem de B12 no consultório:</p>
+  <div class="roteiro">
+    <ol>
+      <li>Não solicitar B12 como rastreio de rotina em paciente assintomático e sem fator de risco identificável.<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref2">2</a></sup></li>
+      <li>Solicitar diante de sintoma sugestivo (achado hematológico inexplicado, queixa cognitiva, alteração visual, glossite, quadro neurológico ou fadiga inexplicada), idealmente associado a um fator de risco reconhecido (seção 6.3).<sup class="cite"><a href="#ref5">5</a></sup></li>
+      <li>Em paciente assintomático, mas com fator de risco relevante (por exemplo, dieta vegana restrita, uso crônico de metformina, cirurgia bariátrica prévia), considerar a solicitação ou, alternativamente, a suplementação empírica sem dosagem prévia, conforme orientado por algumas diretrizes.<sup class="cite"><a href="#ref1">1</a></sup></li>
+      <li>Diante de resultado limítrofe (200 a 300 pg/mL) ou de suspeita clínica persistente com valor normal, complementar com ácido metilmalônico (MMA) e homocisteína antes de descartar o diagnóstico.<sup class="cite"><a href="#ref2">2</a></sup></li>
+      <li>Antes de interpretar um valor muito acima ou muito abaixo do esperado, verificar uso de suplementos e possíveis interferências analíticas (proteína monoclonal, HIV, câncer, doença hepática ou renal, doença autoimune, gravidez).<sup class="cite"><a href="#ref3">3</a></sup></li>
+      <li>Não repetir o exame de forma automática após início do tratamento. Se necessário, aguardar ao menos 2 meses e reservar a repetição para casos de novos sintomas, dúvida sobre adesão ou sobre absorção do tratamento oral.<sup class="cite"><a href="#ref4">4</a></sup></li>
+      <li>Lembrar que a normalização do nível sérico não equivale à resolução clínica: aguardar de 4 a 8 semanas para a resposta hematológica e até 6 a 12 meses para a resposta neurológica antes de considerar falha terapêutica.<sup class="cite"><a href="#ref4">4</a></sup></li>
+    </ol>
+  </div>
+
+  <!-- VOCÊ SABIA -->
+  <div class="didyou">
+    <div class="ic">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+    </div>
+    <div>
+      <div class="h">Você sabia?</div>
+      <p>No consenso da ABRAN (método Delphi), houve concordância de <b>89%</b> de que a dosagem deve ser solicitada em grupos de risco ou diante de condições clínicas sugestivas de deficiência — mas a proposta de <b>medir os níveis de cobalamina rotineiramente em todos os pacientes obteve apenas 33% de concordância</b>.<sup class="cite"><a href="#ref3">3</a></sup></p>
+    </div>
+  </div>
+
+  <!-- MÉTODO -->
+  <details class="method">
+    <summary>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Como esta revisão foi feita — método, critérios e pergunta PICO
+      <span class="chev"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+    </summary>
+    <div class="method-in">
+      <h4>Método de revisão da literatura</h4>
+      <p>Foi realizada revisão bibliográfica sobre a solicitação da dosagem sérica de vitamina B12 (cobalamina) em adultos, conforme pergunta estruturada em formato PICO (Population / Intervention / Comparator / Outcome) definida pelo Comitê e reproduzida abaixo.</p>
+      <p>A busca englobou os seguintes tipos de fonte:</p>
+      <ul>
+        <li>Diretrizes de entidades nacionais e internacionais: National Institute for Health and Care Excellence (Reino Unido), BCGuidelines.ca (Colúmbia Britânica, Canadá) e American Academy of Family Physicians (Estados Unidos).</li>
+        <li>Consensos de especialistas obtidos por método Delphi: painel internacional do Vitamin B12 Consensus Panelists Group e painel brasileiro da Associação Brasileira de Nutrologia.</li>
+        <li>Fontes de síntese clínica, empregadas para diagnóstico laboratorial e para tratamento e monitoramento.</li>
+      </ul>
+      <h4>Critérios de seleção da evidência</h4>
+      <p>Foram incluídos documentos normativos (diretrizes, recomendações, consensos e posicionamentos) e fontes de síntese que se pronunciem sobre quando ou em quem dosar cobalamina sérica, inclusive quando a recomendação é contrária ao rastreio universal. Também entraram publicações que definam sintomas, fatores de risco e medicamentos associados à deficiência, por delimitarem o comparador da pergunta, e publicações que tratem da interpretação do valor sérico, das interferências analíticas e dos testes confirmatórios.</p>
+      <p>Foram excluídos: deficiência de folato como tema principal; população exclusivamente pediátrica ou gestante, salvo quando o documento delimita quem deve ser testado; estudos de suplementação que não se pronunciem sobre a indicação do exame; e literatura de ciência básica sobre o metabolismo da cobalamina.</p>
+    </div>
+  </details>
+
+  <!-- COMITÊ -->
+  <div class="credit">
+    <b>Comitê Técnico Academic Detailing</b> — Unimed CNU · Seguros Unimed. <b>Autor:</b> Dr. Thiago Viana Santos. <b>Revisores:</b> Jacqueline Wahrhaftig, Dr. Guilherme Borges, Dr. Ricardo Moura e Dr. Patrick Harris. Versão 1.0 · Setembro de 2026.
+  </div>
+
+  <!-- REFERÊNCIAS -->
+  <section class="refs">
+    <h2>
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Referências (ABNT)
+    </h2>
+    <ol>
+      <li id="ref1">BC GUIDELINES.CA. Cobalamin (Vitamin B12) and Folate Deficiency. Victoria: British Columbia Ministry of Health, 2023. Disponível em: <a href="https://www2.gov.bc.ca/assets/gov/health/practitioner-pro/bc-guidelines/cobal_folate_guideline_final-1.pdf" target="_blank" rel="noopener">https://www2.gov.bc.ca/assets/gov/health/practitioner-pro/bc-guidelines/cobal_folate_guideline_final-1.pdf</a>. Acesso em: maio 2025.</li>
+      <li id="ref2">MEANS JR., Robert T. Clinical manifestations and diagnosis of vitamin B12 and folate deficiency. In: CONNOR, Russell F. (Ed.). UpToDate. Waltham: Wolters Kluwer, 2025. Acesso em: maio 2025.</li>
+      <li id="ref3">FERNANDES, T. L. et al. Recommendations and guidance on Cobalamin (Vitamin B12) based on the Delphi method. International Journal of Nutrology, v. 18, n. 1, 2025.</li>
+      <li id="ref4">OBEID, R. et al. The Vitamin B Consensus Panelists Group. Diagnosis, treatment and long-term management of vitamin B12 deficiency in adults: a Delphi expert consensus. Journal of Clinical Medicine, v. 13, n. 8, p. 2176, 10 abr. 2024.</li>
+      <li id="ref5">NICE, NATIONAL INSTITUTE FOR HEALTH AND CARE EXCELLENCE. Vitamin B12 deficiency in over 16s: diagnosis and management. NICE guideline NG239. Londres: NICE, 6 mar. 2024. Disponível em: <a href="https://www.nice.org.uk/guidance/ng239" target="_blank" rel="noopener">https://www.nice.org.uk/guidance/ng239</a>. Acesso em: maio 2025.</li>
+      <li id="ref6">LANGAN, R. C. et al. Vitamin B12 deficiency: recognition and management. American Family Physician, v. 96, n. 6, p. 384-389, 15 set. 2017.</li>
+      <li id="ref7">MEANS JR., Robert T. Treatment of vitamin B12 and folate deficiencies. In: CONNOR, Russell F. (Ed.). UpToDate. Waltham: Wolters Kluwer, 2025. Acesso em: maio 2025.</li>
+    </ol>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <strong>Consultoria Acadêmica</strong> — material de apoio para visita médica. Conteúdo de caráter educacional, baseado nas referências citadas e no programa Choosing Wisely. As condutas devem ser individualizadas conforme avaliação clínica.<br>
+    Protótipo para validação · Setembro/2026.<br>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfC4KoE8vejdwxxd4KPuM6HADXPDFLcvwDX7TQ93pgHbNBaKA/viewform?usp=pp_url&amp;entry.1641705264=Vitamina+B12+/+cobalamina" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Sugerir correção</a> — equipe Unimed.
+  </div>
+
 </div>
-
-<!-- ========== GRID DE MATERIAIS ========== -->
-<section class="section" style="padding-top:48px" id="categorias">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Materiais</div>
-        <h2>Biblioteca de visual aids</h2>
-        <p>Cada material traz mensagens-chave no topo e o aprofundamento com evidência logo abaixo — pronto para a visita e para consulta rápida depois.</p>
-      </div>
-      <span class="badge badge-outline" id="count">9 materiais disponíveis</span>
-    </div>
-
-    <div class="grid" id="grid">
-
-      <!-- Ultrassom de abdome total -->
-      <a class="card" href="ultrassom-abdome.html" data-cat="imagem" data-title="ultrassom ultrassonografia usg de abdome total us abdominal ecografia abdominal imagem rastreamento aorta aaa esteatose hepatica achados incidentais choosing wisely">
-        <div class="card-top g-img">
-          <span class="cat">Exames de Imagem</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/><path d="M3 17c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/><path d="M3 7c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Ultrassom de abdome total</h3>
-          <p>Por que não usar como rastreamento de rotina em assintomáticos — indicações apropriadas, o que não pedir e os pontos de atenção (AAA, esteatose).</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~7 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 20 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Vitamina B12 -->
-      <a class="card" href="vitamina-b12.html" data-cat="vitaminas" data-title="vitamina b12 cobalamina dosagem serica deficiencia metformina ibp anti-h2 acido metilmalonico homocisteina vitaminas nutrientes choosing wisely">
-        <div class="card-top g-nutri">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/><path d="M7.5 10.5 9 12l-1.5 1.5"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Dosagem de vitamina B12 (cobalamina)</h3>
-          <p>Quando dosar — e quando não — a B12 sérica: reservar para sintomas sugestivos ou fatores de risco, segundo NICE, ABRAN, BC Guidelines e AAFP.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~7 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Cascata da sobreprevenção -->
-      <a class="card" href="cascata-sobreprevencao.html" data-cat="seguranca" data-title="cascata da sobreprevencao prevencao quaternaria sobrediagnostico sobretratamento efeitos adversos seguranca do paciente rastreamento check-up excesso de exames choosing wisely">
-        <div class="card-top g-prev">
-          <span class="cat">Segurança do Paciente</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7 12 11l7.5-4L12 3z"/><path d="M4.5 12 12 16l7.5-4M4.5 17 12 21l7.5-4"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>A cascata da sobreprevenção</h3>
-          <p>Como um exame desnecessário inicia uma cascata de sobrediagnóstico, sobretratamento e efeitos adversos — nas pessoas e no sistema.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~4 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 4 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Vitamina D -->
-      <a class="card" href="vitamina-d.html" data-cat="vitaminas" data-title="dosagem de vitamina d em adultos assintomaticos 25 hidroxivitamina rastreamento vitaminas nutrientes">
-        <div class="card-top g-nutri">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Dosagem de Vitamina D em adultos assintomáticos</h3>
-          <p>Quando solicitar — e quando não solicitar — a 25(OH)D na prática clínica, segundo as diretrizes mais recentes.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~6 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 9 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Ureia -->
-      <a class="card" href="ureia.html" data-cat="renal" data-title="ureia creatinina funcao renal tfge rac kdigo rastreamento choosing wisely">
-        <div class="card-top g-lab">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M14 3.2C8.8 2.9 4.4 6.8 4 12s3 9.3 7.7 9.6c2.1.1 3.5-1.2 3.4-3-.1-1.4-1.1-2.3-2-3.1-1-.8-1.9-1.6-1.8-3 .1-1.7 1.6-2.9 3.3-2.7 1 .1 1.7.7 2.5 1.2.9.6 2.1.3 2.4-.9C22 7.7 19.9 3.6 14 3.2z"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Ureia no rastreamento da função renal</h3>
-          <p>Por que a ureia não deve ser rotina — e o que usar no lugar: creatinina com TFGe e relação albumina/creatinina.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 9 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- TGO/TGP -->
-      <a class="card" href="tgo-tgp.html" data-cat="hepatica" data-title="tgo tgp ast alt transaminase funcao hepatica figado painel choosing wisely">
-        <div class="card-top g-presc">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M2.5 7c6-2.5 13-2.5 19 0 .2 5.2-3.3 9.4-8.4 9.4-1.8 0-3-.9-3.9-2-.9.6-1.9 1.1-3 1.1-2.3 0-3.6-1.9-3.6-4.3 0-1.6.2-2.9-.6-4.2z"/><path d="M13.5 9c1.6.4 3.2.5 4.8.1" stroke-width="1.1"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>TGO junto da TGP: quando desacoplar</h3>
-          <p>Por que a TGO agrega pouco quando a TGP já foi pedida no painel hepático de rotina — e quando reservá-la.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- VHS -->
-      <a class="card" href="vhs.html" data-cat="inflamacao" data-title="vhs velocidade de hemossedimentacao pcr proteina c reativa inflamacao marcador choosing wisely">
-        <div class="card-top g-prev">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.5h6M10 2.5v14.6a2 2 0 0 0 4 0V2.5"/><path d="M10 12.2h4"/><circle cx="12" cy="14.8" r=".55" fill="currentColor" stroke="none"/><circle cx="10.9" cy="16.4" r=".55" fill="currentColor" stroke="none"/><circle cx="13.1" cy="16.5" r=".55" fill="currentColor" stroke="none"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>VHS: prefira a PCR como marcador de inflamação</h3>
-          <p>Por que a VHS não serve de triagem em assintomáticos — e por que a PCR deve ser o marcador principal.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~6 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 8 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- TSH -->
-      <a class="card" href="tsh.html" data-cat="tireoide" data-title="tsh t4 livre t3 livre tireoide hipotireoidismo levotiroxina rastreio choosing wisely">
-        <div class="card-top g-lab">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="7.6" cy="13.2" rx="3.3" ry="4.4" transform="rotate(-12 7.6 13.2)"/><ellipse cx="16.4" cy="13.2" rx="3.3" ry="4.4" transform="rotate(12 16.4 13.2)"/><path d="M10.1 12.3h3.8"/><path d="M12 12.3V6.2"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>TSH isolado no rastreio da tireoide</h3>
-          <p>Por que o TSH sozinho basta na maioria dos casos — e quando realmente pedir T4 livre e T3 livre.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Ácido fólico -->
-      <a class="card" href="acido-folico.html" data-cat="vitaminas" data-title="acido folico folato serico eritrocitario rbc fortificacao anemia macrocitica vitaminas nutrientes choosing wisely">
-        <div class="card-top g-nutri">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C3 12 8 3.5 20.5 3.5 20.5 16 12 21 4 20z"/><path d="M4 20 15.5 8.5"/><path d="M12 12.5l3-1M8.5 16l3-1" stroke-width="1.1"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Ácido fólico: quando (não) dosar</h3>
-          <p>Por que a deficiência isolada é rara pós-fortificação — e quando reservar a dosagem ou suplementar sem dosar.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-
-    <p id="empty" style="display:none;text-align:center;color:var(--muted-foreground);padding:40px 0;font-size:15px">Nenhum material encontrado para essa busca.</p>
-  </div>
-</section>
-
-<!-- ========== SOBRE / COMO FUNCIONA ========== -->
-<section class="about section" id="programa">
-  <div class="container about-grid">
-    <div class="about-copy">
-      <div class="eyebrow">O programa</div>
-      <h2>O que é Academic Detailing</h2>
-      <p>É uma estratégia de educação médica continuada em que consultores capacitados visitam médicos da rede para levar <b>conteúdo clínico atualizado, embasado em evidência e sem interesse comercial</b>.</p>
-      <p>Nasceu como resposta ao <i>detailing</i> farmacêutico: usa o mesmo canal — a visita individual, a conversa de igual para igual, o material de apoio bem desenhado — mas inverte a lógica. Em vez de vender um produto, entrega a melhor síntese disponível da literatura para apoiar a decisão clínica.</p>
-      <p style="margin-bottom:0">Esta biblioteca concentra todo o conhecimento gerado pelo programa: cada <b>visual aid</b> validado pela equipe acadêmica da Unimed fica aqui, disponível para consulta antes, durante e depois da visita.</p>
-    </div>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h8M8 8h8M8 16h5"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></div>
-        <h4>Isenção comercial</h4>
-        <p>Conteúdo acadêmico e autoral, produzido por pares. A credibilidade vem de não haver produto sendo empurrado.</p>
-      </div>
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h4>Revisado por pares</h4>
-        <p>Cada material passa por curadoria e validação acadêmica interna antes de chegar à visita.</p>
-      </div>
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
-        <h4>Enxuto e visual</h4>
-        <p>Poucas mensagens-chave no topo, evidência e aprofundamento logo abaixo. Feito para ser usado, não arquivado.</p>
-      </div>
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h4>Relacionamento</h4>
-        <p>O valor se constrói em ciclos de visita e no vínculo com o médico da rede — não numa entrega única.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CTA FINAL ========== -->
-<section class="section">
-  <div class="container">
-    <div class="cta-final">
-      <div class="in">
-        <h2>Todo o conhecimento do programa, num só lugar.</h2>
-        <p>Explore os materiais publicados ou acompanhe os próximos temas em produção pela equipe acadêmica da Seguros Unimed.</p>
-        <div class="btns">
-          <a href="#biblioteca" class="btn btn-primary btn-lg" style="background:#fff;color:var(--g1d);box-shadow:0 8px 24px rgba(0,0,0,.18)">Abrir a biblioteca</a>
-          <a href="#programa" class="btn btn-ghost-light btn-lg">Conhecer o programa</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="brand">
-          <span class="brand-mark" style="background:var(--grad-marca);display:flex;align-items:center;justify-content:center">
-            <span style="width:26px;height:26px;background:var(--logo-ad) center/contain no-repeat"></span>
-          </span>
-          <span class="brand-txt">
-            <span class="nm" style="font-size:15px">Consultoria Acadêmica</span>
-            <span class="sb" style="display:block">Seguros Unimed</span>
-          </span>
-        </div>
-        <p class="footer-about">Biblioteca de conhecimento clínico do programa Consultoria Acadêmica. Conteúdo de caráter educacional; as condutas devem ser individualizadas conforme avaliação clínica.</p>
-      </div>
-      <div>
-        <h5>Materiais</h5>
-        <ul>
-          <li><a href="ultrassom-abdome.html">Ultrassom de abdome total</a></li>
-          <li><a href="vitamina-b12.html">Vitamina B12 / cobalamina</a></li>
-          <li><a href="cascata-sobreprevencao.html">A cascata da sobreprevenção</a></li>
-          <li><a href="vitamina-d.html">Vitamina D</a></li>
-          <li><a href="ureia.html">Ureia / função renal</a></li>
-          <li><a href="tgo-tgp.html">TGO / TGP</a></li>
-          <li><a href="vhs.html">VHS</a></li>
-          <li><a href="tsh.html">TSH / T4L / T3L</a></li>
-          <li><a href="acido-folico.html">Ácido fólico</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Temas</h5>
-        <ul>
-          <li><a href="#biblioteca">Segurança do paciente</a></li>
-          <li><a href="#biblioteca">Exames de imagem</a></li>
-          <li><a href="#biblioteca">Função renal</a></li>
-          <li><a href="#biblioteca">Função hepática</a></li>
-          <li><a href="#biblioteca">Tireoide</a></li>
-          <li><a href="#biblioteca">Inflamação</a></li>
-          <li><a href="#biblioteca">Vitaminas e nutrientes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Programa</h5>
-        <ul>
-          <li><a href="#programa">O que é</a></li>
-          <li><a href="#programa">Como funciona</a></li>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfC4KoE8vejdwxxd4KPuM6HADXPDFLcvwDX7TQ93pgHbNBaKA/viewform?usp=pp_url&amp;entry.1641705264=Portal+/+p%C3%A1gina+inicial" target="_blank" rel="noopener">Sugerir correção</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p><strong>Consultoria Acadêmica</strong> — material de apoio à visita médica. Protótipo para validação · 2026.</p>
-      <p class="made">Sistema de marca Consultoria Acadêmica · Unimed Sans</p>
-    </div>
-  </div>
-</footer>
 
 <script>
 (function(){
-  var q = document.getElementById('q');
-  var chips = document.querySelectorAll('.chip');
-  var cards = Array.from(document.querySelectorAll('#grid .card'));
-  var empty = document.getElementById('empty');
-  var count = document.getElementById('count');
-  var activeCat = 'all';
-
-  function apply(){
-    var term = (q.value || '').toLowerCase().trim();
-    var shown = 0;
-    cards.forEach(function(c){
-      var okCat = activeCat === 'all' || c.getAttribute('data-cat') === activeCat;
-      var okTerm = !term || (c.getAttribute('data-title') || '').indexOf(term) > -1;
-      var vis = okCat && okTerm;
-      c.style.display = vis ? '' : 'none';
-      if(vis) shown++;
-    });
-    empty.style.display = shown ? 'none' : 'block';
-    count.textContent = shown + (shown === 1 ? ' material' : ' materiais') + (shown === 1 ? ' disponível' : ' disponíveis');
-  }
-
-  q.addEventListener('input', apply);
-  chips.forEach(function(ch){
-    ch.addEventListener('click', function(){
-      chips.forEach(function(x){x.classList.remove('active')});
-      ch.classList.add('active');
-      activeCat = ch.getAttribute('data-cat');
-      apply();
+  var heads = document.querySelectorAll('.acc-head');
+  heads.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var body = item.querySelector('.acc-body');
+      if(item.classList.contains('open')){
+        body.style.maxHeight = null;
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
     });
   });
-
-  apply();
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.acc-item.open .acc-body').forEach(function(b){
+      b.style.maxHeight = b.scrollHeight + 'px';
+    });
+  });
+  document.querySelectorAll('sup.cite a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var li = document.getElementById(a.getAttribute('href').slice(1));
+      if(li){ li.classList.remove('flash'); void li.offsetWidth; li.classList.add('flash'); }
+    });
+  });
 })();
 </script>
+
+
+<div id="adshare"><button id="adshare-btn" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg> Compartilhar</button>
+<div id="adshare-panel" hidden><div class="adshare-h">Compartilhar este material</div><img id="adshare-qr" width="200" height="200" alt="QR code do material"><p class="adshare-hint">Aponte a camera do celular para o QR</p><a id="adshare-wa" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg> Enviar no WhatsApp</a><button id="adshare-copy" type="button">Copiar link</button></div></div>
+<style>#adshare{position:fixed;right:16px;bottom:16px;z-index:9999;font-family:'Unimed Sans','Inter',system-ui,sans-serif}#adshare-btn{display:inline-flex;align-items:center;gap:8px;background:#00524D;color:#fff;border:none;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(9,24,48,.28)}#adshare-btn:hover{background:#03635C}#adshare-panel{position:absolute;right:0;bottom:56px;width:264px;background:#fff;border:1px solid #e2e8e5;border-radius:16px;box-shadow:0 18px 50px rgba(9,24,48,.22);padding:18px;text-align:center}.adshare-h{font-size:14px;font-weight:700;color:#1a2420;margin-bottom:12px}#adshare-qr{border-radius:10px;background:#f5f4f0}.adshare-hint{font-size:12px;color:#7d8c86;margin:8px 0 14px}#adshare-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;border-radius:10px;padding:11px;font-size:14px;font-weight:700;margin-bottom:9px}#adshare-copy{width:100%;background:#EAF0ED;color:#00524D;border:1px solid #CBD7D1;border-radius:10px;padding:11px;font-size:14px;font-weight:700;cursor:pointer}#adshare-copy:hover{background:#e6f7f0}@media print{#adshare{display:none}}</style>
+<script>(function(){var url=location.href.split('#')[0];var title=(document.title||'').split('—')[0].trim();var qr=document.getElementById('adshare-qr');qr.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data='+encodeURIComponent(url);document.getElementById('adshare-wa').href='https://wa.me/?text='+encodeURIComponent(title+' — material Consultoria Acadêmica: '+url);var btn=document.getElementById('adshare-btn'),panel=document.getElementById('adshare-panel');btn.addEventListener('click',function(e){e.stopPropagation();panel.hidden=!panel.hidden;});var copy=document.getElementById('adshare-copy');copy.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(url).then(function(){copy.textContent='Link copiado!';setTimeout(function(){copy.textContent='Copiar link';},1600);});});document.addEventListener('click',function(ev){if(!document.getElementById('adshare').contains(ev.target))panel.hidden=true;});})();</script>
 
 </body>
 </html>
