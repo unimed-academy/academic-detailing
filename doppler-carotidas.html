@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblioteca do Conhecimento — Consultoria Acadêmica</title>
-<meta name="description" content="Portal de conhecimento clínico do programa Consultoria Acadêmica da Seguros Unimed. Sínteses de evidência, isentas de interesse comercial, para apoiar a decisão à beira do leito.">
+<title>Doppler de carótidas e vertebrais — Consultoria Acadêmica</title>
+<meta name="description" content="Por que o Doppler (duplex) de carótidas e vertebrais não deve ser rastreamento de rotina em assintomáticos: rastreio seletivo em subgrupos de alto risco, com foco em prevenção, segundo USPSTF, SVS, ESVS e ESC.">
 <!-- ═══════════════════════════════════════════════════════════════════════
      CONSULTORIA ACADÊMICA — extensão de fontes + marca (Seguros Unimed)
      Include próprio da pele Academic Detailing; o Estilos_Fontes.html do DS
@@ -135,617 +135,474 @@ img,svg{display:block}
 </style>
 
 <style>
-/* CSS específico da Home (hero, cards, hero-visual, seção programa, footer) — retokenizado */
-
-/* ============ NAVBAR ============ */
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(246,247,245,.82);
-  backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid var(--border);
+/* CSS específico deste material, retokenizado */
+:root{
+  --tx:var(--foreground);--tx2:var(--text-secondary);--tx3:var(--muted-foreground);
+  --bg:var(--background);--sf:var(--card);--bd:var(--border);--bd2:var(--border-hover);
+  --mito:var(--red);--verd:var(--g1);--soft2:var(--muted-bg);
+  /* categoria: Exames de Imagem (tons de --roxo) */
+  --img:var(--roxo);--img-d:#553d84;--img-soft:var(--roxo-bg);
 }
-.nav-in{display:flex;align-items:center;gap:18px;height:68px}
-.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.brand-mark{width:40px;height:40px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:var(--shadow-sm)}
-.brand-mark svg{width:40px;height:40px}
-.brand-txt .nm{font-size:15.5px;font-weight:700;letter-spacing:-.3px;line-height:1.1}
-.brand-txt .sb{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:4px;margin-left:14px}
-.nav-links a{font-size:14.5px;font-weight:400;color:var(--muted-foreground);padding:9px 14px;border-radius:9px;transition:background .16s,color .16s}
-.nav-links a:hover{background:var(--muted);color:var(--foreground)}
-.nav-spacer{flex:1}
-.nav-actions{display:flex;align-items:center;gap:10px}
 
-/* ============ HERO ============ */
-.hero{
-  position:relative;overflow:hidden;color:#fff;
-  background:
-    linear-gradient(105deg, var(--sidebar) 0 46%, transparent 46%),
-    var(--grad-marca);
-}
-.hero::before{
-  content:"";position:absolute;right:-40px;top:-30px;width:420px;height:420px;
-  background:var(--logo-ad) center/contain no-repeat;opacity:.10;pointer-events:none;
-}
-.hero::after{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
-  background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 82%);
-}
-.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:78px 0 88px}
-.hero-kicker{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:24px}
-.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--citric);box-shadow:0 0 0 4px rgba(177,211,75,.25)}
-.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.04;font-weight:700;letter-spacing:-1.4px;margin-bottom:22px}
-.hero h1 .hl{color:var(--citric)}
-.hero-tagline{position:relative;z-index:1}
-.hero-lead{position:relative;z-index:1;font-size:18px;line-height:1.62;color:rgba(255,255,255,.82);max-width:52ch;margin-bottom:32px}
-.hero-cta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
-.hero-stats{position:relative;z-index:1;display:flex;gap:34px;flex-wrap:wrap}
-.hstat .v{font-size:28px;font-weight:700;letter-spacing:-.6px;line-height:1}
-.hstat .v small{font-size:15px;font-weight:700;color:var(--citric)}
-.hstat .k{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.02em}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 64px}
 
-/* hero visual: card empilhado */
-.hero-visual{position:relative;z-index:1;min-height:340px}
-.hcard{
-  position:absolute;background:#fff;color:var(--foreground);
-  border-radius:18px;box-shadow:var(--shadow-lg);padding:22px 22px 26px;
+/* BRAND BAR */
+.brandbar{background:linear-gradient(120deg,var(--g3) 0%,var(--g3d) 100%);color:#fff}
+.brandbar-in{max-width:900px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;gap:11px}
+.brand-ico{width:34px;height:34px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--grad-marca);display:flex;align-items:center;justify-content:center}
+.brand-nm{font-size:15px;font-weight:700;letter-spacing:-.2px;line-height:1.15}
+.brand-sub{font-size:10.5px;color:rgba(255,255,255,.55);letter-spacing:.07em;text-transform:uppercase;margin-top:1px}
+.brand-tag{font-size:11px;font-weight:700;color:var(--accent);margin-top:3px}
+.brand-spacer{flex:1}
+.brand-back{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.82);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:8px 13px;border-radius:9px;text-decoration:none;transition:background .16s}
+.brand-back:hover{background:rgba(255,255,255,.2)}
+
+/* HERO */
+.hero{padding:30px 0 8px}
+.kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--img-d);background:var(--img-soft);padding:4px 11px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.18;font-weight:700;letter-spacing:-.6px;color:var(--tx);margin-bottom:8px}
+.lead{font-size:16.5px;color:var(--tx2);max-width:66ch}
+
+/* META */
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+.meta-item{display:flex;align-items:center;gap:7px;background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:8px 12px}
+.meta-item svg{color:var(--g1);flex-shrink:0}
+.meta-k{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3);line-height:1.1}
+.meta-v{font-size:13px;font-weight:700;color:var(--tx);line-height:1.2}
+
+/* FICHA */
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 4px}
+.ficha-card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.ficha-k{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tx3);margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--tx2);background:var(--soft2);border:1px solid var(--bd);border-radius:20px;padding:5px 11px}
+.tag svg{color:var(--g1)}
+.tag.spec{background:#fff;color:var(--tx)}
+.syn{font-size:12.5px;color:var(--tx3);line-height:1.5;margin:12px 2px 0}
+.syn b{color:var(--tx2)}
+
+/* RECOMENDAÇÃO PRÁTICA (keybox) */
+.keybox{background:linear-gradient(160deg,#ffffff 0%,#f3faf7 100%);border:1px solid var(--bd2);border-left:5px solid var(--g1);border-radius:14px;padding:24px;margin:26px 0 8px;box-shadow:var(--shadow)}
+.keybox-h{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.keybox-h svg{color:var(--g1);flex-shrink:0}
+.keybox-h h2{font-size:18px;font-weight:700;letter-spacing:-.2px}
+.keybox p.big{font-size:16.5px;line-height:1.55;color:var(--tx)}
+.keybox p.big strong{color:var(--g1d)}
+.keybox .do{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.do-item{flex:1 1 240px;display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.do-item .i{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.do-item.no .i{background:#fdecea;color:var(--red)}
+.do-item.yes .i{background:var(--soft);color:var(--g1d)}
+.do-item p{font-size:13.5px;color:var(--tx2);line-height:1.45;margin:0}
+.do-item p b{color:var(--tx)}
+
+/* separadores de seção */
+.deep-intro{display:flex;align-items:center;gap:10px;margin:38px 0 16px}
+.deep-intro .t{font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--tx3);white-space:nowrap}
+.deep-intro .ln{flex:1;height:1px;background:var(--bd)}
+.sec-lead{font-size:14.5px;color:var(--tx2);line-height:1.6;margin:-6px 0 16px}
+.sec-lead.prose{font-size:15.5px}
+
+/* TABELA */
+.indic-wrap{margin:2px 0 6px}
+.indic-table{width:100%;border-collapse:collapse;background:var(--sf);border:1px solid var(--bd);border-radius:12px;overflow:hidden;font-size:14px}
+.indic-table thead th{background:var(--surface-2);color:var(--tx2);text-align:left;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:11px 14px;border-bottom:1px solid var(--bd)}
+.indic-table td{padding:11px 14px;border-bottom:1px solid var(--bd);color:var(--tx2);line-height:1.45;vertical-align:top}
+.indic-table tbody tr:nth-child(even){background:var(--soft2)}
+.indic-table tbody tr:last-child td{border-bottom:none}
+.indic-table td.sit{color:var(--tx);font-weight:700}
+.indic-table td.src{white-space:normal;font-weight:700;color:var(--g1d)}
+.indic-note{font-size:12.5px;color:var(--tx3);line-height:1.5;margin:10px 2px 0;padding-left:14px;border-left:3px solid var(--bd)}
+
+/* NÃO INDICADO */
+.avoid-list{display:flex;flex-direction:column;gap:10px;margin:2px 0 6px}
+.avoid-list .ai{display:flex;gap:11px;align-items:flex-start;background:var(--sf);border:1px solid var(--bd);border-left:4px solid var(--red);border-radius:11px;padding:13px 15px}
+.avoid-list .ai .x{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:#fdecea;color:var(--red);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.avoid-list .ai p{font-size:14px;color:var(--tx2);line-height:1.5;margin:0}
+
+/* APROFUNDAMENTO (accordion) */
+.deep-hint{font-size:13px;color:var(--tx3);margin:-6px 0 16px;display:flex;align-items:center;gap:6px}
+.acc{display:flex;flex-direction:column;gap:10px}
+.acc-item{background:var(--sf);border:1px solid var(--bd);border-radius:13px;overflow:hidden;transition:border-color .18s,box-shadow .18s}
+.acc-item.open{border-color:var(--bd2);box-shadow:var(--shadow)}
+.acc-head{width:100%;min-height:60px;display:flex;align-items:center;gap:14px;padding:14px 18px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;color:var(--tx);-webkit-tap-highlight-color:transparent}
+.acc-head:active{background:var(--soft2)}
+.acc-num{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--soft);color:var(--g1d);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.acc-title{flex:1;font-size:16px;font-weight:700;letter-spacing:-.1px;line-height:1.3}
+.acc-ico{flex-shrink:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--tx3);transition:transform .25s ease}
+.acc-item.open .acc-ico{transform:rotate(45deg);color:var(--g1)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc-inner{padding:2px 22px 22px 22px}
+.acc-inner p{font-size:15px;color:var(--tx2);margin-bottom:13px}
+.acc-inner p:last-child{margin-bottom:0}
+.acc-inner p strong{color:var(--tx)}
+
+/* ROTEIRO */
+.roteiro{background:linear-gradient(160deg,#ffffff 0%,#f3faf7 100%);border:1px solid var(--bd2);border-radius:14px;padding:22px 24px;margin:6px 0 8px;box-shadow:var(--shadow)}
+.roteiro ol{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:12px}
+.roteiro li{counter-increment:st;position:relative;padding-left:40px;font-size:14.5px;color:var(--tx2);line-height:1.5}
+.roteiro li::before{content:counter(st);position:absolute;left:0;top:-1px;width:27px;height:27px;border-radius:8px;background:var(--g1);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* VOCÊ SABIA */
+.didyou{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,var(--g3) 0%,var(--g3d) 100%);color:#fff;border-radius:14px;padding:20px 22px;margin:32px 0 8px;box-shadow:var(--shadow)}
+.didyou .ic{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:rgba(177,211,75,.2);color:var(--citric);display:flex;align-items:center;justify-content:center}
+.didyou .h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--citric);margin-bottom:6px}
+.didyou p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.9);margin:0}
+.didyou b{color:#fff}
+
+/* CRÉDITO */
+.credit{background:var(--soft2);border:1px solid var(--bd);border-radius:12px;padding:15px 17px;margin:26px 0 4px;font-size:13.5px;color:var(--tx2);line-height:1.55}
+.credit b{color:var(--tx)}
+
+/* citações */
+sup.cite{font-weight:700;font-size:11px;line-height:0}
+sup.cite a{color:var(--g1d);text-decoration:none;background:var(--soft);padding:1px 5px;border-radius:5px;margin-left:1px}
+
+/* REFERÊNCIAS */
+.refs{margin-top:40px;border-top:2px solid var(--bd);padding-top:22px}
+.refs h2{font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx2);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.refs h2 svg{color:var(--g1)}
+.refs ol{list-style:none;counter-reset:r;display:flex;flex-direction:column;gap:11px}
+.refs li{counter-increment:r;position:relative;padding-left:34px;font-size:13px;color:var(--tx2);line-height:1.5}
+.refs li::before{content:counter(r);position:absolute;left:0;top:0;width:23px;height:23px;border-radius:6px;background:var(--soft);color:var(--g1d);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.refs li a{color:var(--g1d);word-break:break-word}
+.refs li.flash{animation:fl 1.4s ease}
+@keyframes fl{0%,40%{background:#fff6d6;border-radius:8px}100%{background:transparent}}
+
+/* FOOTER */
+.foot{margin-top:36px;padding-top:20px;border-top:1px solid var(--bd);font-size:12px;color:var(--tx3);line-height:1.6}
+.foot strong{color:var(--tx2)}
+
+/* RESPONSIVO */
+@media (max-width:680px){
+  body{font-size:15.5px}
+  h1{font-size:25px}
+  .wrap{padding:0 14px 48px}
+  .keybox{padding:20px 18px}
+  .roteiro{padding:20px 18px}
+  .acc-inner{padding:2px 16px 18px}
+  .meta-item{flex:1 1 calc(50% - 8px)}
+  .ficha{grid-template-columns:1fr}
+  .indic-table,.indic-table tbody,.indic-table tr,.indic-table td{display:block;width:100%}
+  .indic-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .indic-table tr{border-bottom:1px solid var(--bd);padding:6px 0}
+  .indic-table tbody tr:last-child{border-bottom:none}
+  .indic-table td{border-bottom:none;padding:6px 14px}
+  .indic-table td::before{content:attr(data-label);display:block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--tx3);margin-bottom:3px}
 }
-.hcard-1{inset:0 22px 22px 0;z-index:2}
-.hcard-2{top:44px;right:0;left:60px;bottom:0;z-index:1;opacity:.55;transform:rotate(3deg)}
-.hcard-tag{display:inline-flex;align-items:center;gap:6px;background:var(--soft);color:var(--g1d);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:16px}
-.hcard h3{font-size:19px;font-weight:700;letter-spacing:-.4px;line-height:1.22;margin-bottom:14px}
-.hcard .krow{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--border)}
-.hcard .krow .n{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--g1);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
-.hcard .krow p{font-size:13.5px;color:var(--muted-foreground);line-height:1.45}
-.hcard .krow p b{color:var(--foreground)}
-.hcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12.5px;color:var(--subtle);font-weight:400}
-.hcard-foot .go{display:inline-flex;align-items:center;gap:6px;color:var(--g1);font-weight:700}
-
-/* ============ FAIXA DE BUSCA / FILTROS ============ */
-.section{padding:76px 0}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px;flex-wrap:wrap}
-.section-head .eyebrow{margin-bottom:10px}
-.section-head h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.8px;line-height:1.1}
-.section-head p{font-size:16px;color:var(--muted-foreground);margin-top:10px;max-width:60ch}
-
-.searchwrap{margin-top:-40px;position:relative;z-index:10}
-.searchbar{
-  display:flex;align-items:center;gap:14px;background:var(--card);
-  border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-  padding:8px 8px 8px 20px;
-}
-.searchbar svg{color:var(--subtle);flex-shrink:0}
-.searchbar input{flex:1;border:none;outline:none;font-family:inherit;font-size:16px;color:var(--foreground);background:transparent;padding:12px 0}
-.searchbar input::placeholder{color:var(--subtle)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.chip{
-  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-  font-size:13.5px;font-weight:700;color:var(--muted-foreground);
-  background:var(--card);border:1px solid var(--border);border-radius:30px;padding:9px 16px;
-  transition:all .16s;
-}
-.chip:hover{border-color:var(--border-strong);color:var(--foreground)}
-.chip.active{background:var(--g3);border-color:var(--g3);color:#fff}
-.chip .ct{font-size:11px;font-weight:700;opacity:.7}
-
-/* ============ GRID DE CONTEÚDO ============ */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
-.card{
-  position:relative;display:flex;flex-direction:column;
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  overflow:hidden;box-shadow:var(--shadow-sm);
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
-}
-a.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--border-strong)}
-.card-top{position:relative;height:118px;overflow:hidden;display:flex;align-items:flex-end;padding:16px}
-.card-top.g-lab{background:linear-gradient(135deg,var(--primary),var(--marinho))}
-.card-top.g-nutri{background:linear-gradient(135deg,#5aa646,var(--primary-hover))}
-.card-top.g-presc{background:linear-gradient(135deg,#0b8f9c,var(--marinho))}
-.card-top.g-prev{background:linear-gradient(135deg,#e08a2b,#a8500a)}
-.card-top.g-img{background:linear-gradient(135deg,#7d5fb8,#6B4FA0)}
-.card-top::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:18px 18px;opacity:.5}
-.card-top .cat{position:relative;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;backdrop-filter:blur(4px)}
-.card-top .icon{position:absolute;right:-8px;bottom:-24px;color:#fff;opacity:.22;pointer-events:none;z-index:0}
-.card-top .icon svg{width:138px;height:138px;display:block}
-.card-top .cat{z-index:1}
-.card-body{padding:20px 20px 18px;display:flex;flex-direction:column;flex:1}
-.card-body h3{font-size:18.5px;font-weight:700;letter-spacing:-.4px;line-height:1.22;margin-bottom:9px}
-.card-body p{font-size:14px;color:var(--muted-foreground);line-height:1.5;flex:1}
-.card-meta{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:15px;border-top:1px solid var(--border);font-size:12.5px;color:var(--subtle);font-weight:400}
-.card-meta .m{display:inline-flex;align-items:center;gap:6px}
-.card-meta .m svg{color:var(--subtle)}
-.card-cta{margin-left:auto;display:inline-flex;align-items:center;gap:5px;color:var(--g1);font-weight:700}
-.card.soon{opacity:.92}
-.card.soon .card-top{filter:saturate(.55)}
-.card.soon .card-cta{color:var(--subtle)}
-
-/* ============ COMO FUNCIONA / SOBRE ============ */
-.about{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.pillar{background:var(--background);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
-.pillar .pi{width:44px;height:44px;border-radius:11px;background:var(--soft);color:var(--g1d);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.pillar h4{font-size:16px;font-weight:700;letter-spacing:-.2px;margin-bottom:7px}
-.pillar p{font-size:13.5px;color:var(--muted-foreground);line-height:1.5}
-.about-copy .eyebrow{margin-bottom:12px}
-.about-copy h2{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.9px;line-height:1.1;margin-bottom:18px}
-.about-copy p{font-size:16px;color:var(--muted-foreground);line-height:1.65;margin-bottom:16px}
-.about-copy p b{color:var(--foreground);font-weight:700}
-
-/* ============ CTA FINAL ============ */
-.cta-final{
-  position:relative;overflow:hidden;border-radius:24px;
-  background:linear-gradient(130deg,var(--g1) 0%,var(--g3) 70%);
-  color:#fff;padding:56px;text-align:center;box-shadow:var(--shadow-lg);
-}
-.cta-final::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%)}
-.cta-final .in{position:relative;z-index:1}
-.cta-final h2{font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.08;margin-bottom:16px}
-.cta-final p{font-size:17px;color:rgba(255,255,255,.85);max-width:56ch;margin:0 auto 30px}
-.cta-final .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-/* ============ FOOTER ============ */
-.footer{padding:56px 0 40px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border)}
-.footer .brand{margin-bottom:16px}
-.footer-about{font-size:13.5px;color:var(--muted-foreground);line-height:1.6;max-width:38ch}
-.footer h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-bottom:16px}
-.footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-.footer ul a{font-size:14px;color:var(--muted-foreground);transition:color .15s}
-.footer ul a:hover{color:var(--g1)}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:26px;flex-wrap:wrap}
-.footer-bottom p{font-size:12.5px;color:var(--subtle);line-height:1.6}
-.footer-bottom .made{font-size:12.5px;color:var(--subtle)}
-
-/* ============ RESPONSIVO (tablet + desktop) ============ */
-@media (max-width:980px){
-  .hero-in{grid-template-columns:1fr;gap:40px;padding:60px 0 70px}
-  .hero-visual{min-height:300px;max-width:520px}
-  .about-grid{grid-template-columns:1fr;gap:40px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .nav-links{display:none}
-}
-@media (max-width:640px){
-  .container{padding:0 18px}
-  .nav-in{height:62px}
-  .brand-txt .sb{display:none}
-  .hero-stats{gap:24px}
-  .pillars{grid-template-columns:1fr}
-  .cta-final{padding:40px 26px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
-  .searchwrap{margin-top:-30px}
+@media (max-width:420px){
+  h1{font-size:22px}
+  .meta-item{flex:1 1 100%}
 }
 </style>
 </head>
 <body>
 
-<!-- ========== NAVBAR ========== -->
-<header class="nav">
-  <div class="container nav-in">
-    <a href="#" class="brand">
-      <span class="brand-mark" style="background:var(--grad-marca);display:flex;align-items:center;justify-content:center">
-        <span style="width:26px;height:26px;background:var(--logo-ad) center/contain no-repeat"></span>
-      </span>
-      <span class="brand-txt">
-        <span class="nm">Consultoria Acadêmica</span>
-        <span class="sb">Biblioteca do Conhecimento · Unimed</span>
-      </span>
-    </a>
-    <nav class="nav-links">
-      <a href="#biblioteca">Biblioteca</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#programa">O programa</a>
-    </nav>
-    <span class="nav-spacer"></span>
-    <div class="nav-actions">
-      <a href="#biblioteca" class="btn btn-outline">Explorar materiais</a>
+<!-- BRAND BAR -->
+<header class="brandbar">
+  <div class="brandbar-in">
+    <a href="index.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit"><div class="brand-ico">
+      <span style="width:22px;height:22px;background:var(--logo-ad) center/contain no-repeat"></span>
     </div>
+    <div>
+      <div class="brand-nm">Consultoria Acadêmica</div>
+      <div class="brand-sub">Material de apoio · Visita médica</div>
+      <div class="brand-tag">A evolução contínua da prática médica baseada na ciência.</div>
+    </div>
+    </a><span class="brand-spacer"></span>
+    <a class="brand-back" href="index.html">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Biblioteca
+    </a>
   </div>
 </header>
 
-<!-- ========== HERO ========== -->
-<section class="hero">
-  <div class="container hero-in">
-    <div class="hero-copy">
-      <span class="hero-kicker"><span class="dot"></span> Educação médica baseada em evidência · isenta de interesse comercial</span>
-      <h1>A melhor síntese da evidência, <span class="hl">na hora da decisão clínica.</span></h1>
-      <p class="hero-tagline" style="color:var(--accent);font-weight:700;letter-spacing:.02em;margin:-8px 0 20px">A evolução contínua da prática médica baseada na ciência.</p>
-      <p class="hero-lead">A biblioteca de conhecimento do programa <b style="color:#fff">Consultoria Acadêmica</b> da Seguros Unimed. Conteúdo clínico autoral, revisado por pares e desenhado para a visita ao médico da rede. Poucas mensagens-chave, com evidência sólida por trás.</p>
-      <div class="hero-cta">
-        <a href="#biblioteca" class="btn btn-primary btn-lg">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          Abrir a biblioteca
-        </a>
-        <a href="#programa" class="btn btn-ghost-light btn-lg">Como funciona</a>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="kicker">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M2 12c0-1 1-2 2-2s2 1 2 2M8 12c0-3 1.5-5 4-5s4 2 4 5M18 12c0-1 1-2 2-2s2 1 2 2M2 16c0-1 1-2 2-2s2 1 2 2M8 16c0-3 1.5-5 4-5s4 2 4 5M18 16c0-1 1-2 2-2s2 1 2 2"/></svg>
+      Exames de Imagem
+    </span>
+    <h1>Doppler de carótidas e vertebrais</h1>
+    <p class="lead">As evidências atuais não sustentam o Doppler (duplex) de carótidas e vertebrais como rastreamento de rotina em pacientes assintomáticos. A recomendação convergente é não rastrear a população geral e reservar o exame para subgrupos de alto risco bem definidos, com o objetivo de intensificar a prevenção cardiovascular.</p>
+
+    <div class="meta">
+      <div class="meta-item">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><div class="meta-k">Tempo de leitura</div><div class="meta-v">~7 minutos</div></div>
       </div>
-      <div class="hero-stats">
-        <div class="hstat"><div class="v">9<small> materiais</small></div><div class="k">Publicados e disponíveis</div></div>
-        <div class="hstat"><div class="v">7</div><div class="k">Temas clínicos</div></div>
-        <div class="hstat"><div class="v">100%</div><div class="k">Revisado por pares</div></div>
+      <div class="meta-item">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        <div><div class="meta-k">Publicação</div><div class="meta-v">Setembro/2026</div></div>
+      </div>
+      <div class="meta-item">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <div><div class="meta-k">Versão</div><div class="meta-v">1.0</div></div>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <!-- card fantasma atrás -->
-      <div class="hcard hcard-2">
-        <span class="hcard-tag">Também na biblioteca</span>
-        <h3>TSH isolado no rastreio da tireoide</h3>
-      </div>
-      <!-- card destaque: Vitamina D -->
-      <a href="vitamina-d.html" class="hcard hcard-1">
-        <span class="hcard-tag">
-          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-          Material em destaque
-        </span>
-        <h3>Dosagem de Vitamina D em adultos assintomáticos</h3>
-        <div class="krow"><span class="n">1</span><p>Evidências <b>não embasam a solicitação rotineira</b> em adultos assintomáticos.</p></div>
-        <div class="krow"><span class="n">2</span><p>Reservar o exame para <b>fatores de risco e indicações clínicas</b> definidas.</p></div>
-        <div class="hcard-foot">
-          <span>~6 min de leitura · 9 referências</span>
-          <span class="go">Abrir <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    <!-- FICHA -->
+    <div class="ficha">
+      <div class="ficha-card">
+        <div class="ficha-k">Abrangência</div>
+        <div class="tags">
+          <span class="tag"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Ambulatório</span>
         </div>
-      </a>
+      </div>
+      <div class="ficha-card">
+        <div class="ficha-k">Especialidades relevantes</div>
+        <div class="tags">
+          <span class="tag spec">Clínica Médica e Medicina de Família e Comunidade</span>
+          <span class="tag spec">Cardiologia</span>
+          <span class="tag spec">Endocrinologia</span>
+          <span class="tag spec">Neurologia</span>
+          <span class="tag spec">Cirurgia Vascular</span>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+    <p class="syn"><b>Nome do exame:</b> Ultrassonografia com Doppler (duplex) de carótidas e vertebrais, referida neste material pela sigla DCV. <b>Sinônimos:</b> “Doppler de carótidas”, “eco-doppler de vasos cervicais”, “duplex scan carotídeo”.</p>
+  </section>
 
-<!-- ========== BUSCA + FILTROS ========== -->
-<div class="container" id="biblioteca">
-  <div class="searchwrap">
-    <label class="searchbar">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="q" type="text" placeholder="Buscar por tema, exame ou palavra-chave (ex.: vitamina D, rastreamento…)" autocomplete="off">
-      <span class="btn btn-primary" style="pointer-events:none">Buscar</span>
-    </label>
-    <div class="chips" id="chips">
-      <span class="chip active" data-cat="all">Todos <span class="ct">9</span></span>
-      <span class="chip" data-cat="seguranca">Segurança do paciente <span class="ct">1</span></span>
-      <span class="chip" data-cat="imagem">Exames de imagem <span class="ct">1</span></span>
-      <span class="chip" data-cat="renal">Função renal <span class="ct">1</span></span>
-      <span class="chip" data-cat="hepatica">Função hepática <span class="ct">1</span></span>
-      <span class="chip" data-cat="tireoide">Tireoide <span class="ct">1</span></span>
-      <span class="chip" data-cat="inflamacao">Inflamação <span class="ct">1</span></span>
-      <span class="chip" data-cat="vitaminas">Vitaminas e nutrientes <span class="ct">3</span></span>
+  <!-- MENSAGEM PRINCIPAL -->
+  <section class="keybox">
+    <div class="keybox-h">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <h2>Mensagem principal</h2>
+    </div>
+    <p class="big">Não solicite o DCV como <strong>rastreamento de rotina em pacientes assintomáticos</strong>. Nessa população a prevalência de estenose relevante é baixa e o exame gera mais falso-positivos do que verdadeiros-positivos. Reserve-o para <strong>subgrupos de alto risco bem definidos</strong>, quando o objetivo for intensificar a prevenção secundária.</p>
+    <div class="do">
+      <div class="do-item no">
+        <span class="i"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+        <p><b>Evite</b> o DCV como triagem geral em assintomáticos e para “tranquilizar” o paciente ou em check-up de rotina.</p>
+      </div>
+      <div class="do-item yes">
+        <span class="i"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><b>Considere</b> apenas nos subgrupos de risco (prevalência estimada ≥20%), quando o achado for mudar a conduta de prevenção.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXTO GERAL -->
+  <div class="deep-intro"><span class="t">Contexto geral</span><span class="ln"></span></div>
+  <p class="sec-lead prose">A prevalência de estenose carotídea relevante (≥70%) na população geral assintomática é baixa, entre 0% e 3,1%.<sup class="cite"><a href="#ref1">1</a></sup> Nessa faixa, mesmo um exame com boa acurácia (sensibilidade em torno de 90% e especificidade de 94% para estenose ≥70%) produz mais resultados falso-positivos do que verdadeiros-positivos, e nenhum estudo comparou diretamente rastrear versus não rastrear tendo AVC ou mortalidade como desfecho.<sup class="cite"><a href="#ref2">2</a></sup> A Sociedade Europeia de Cirurgia Vascular registra que nenhum ensaio clínico randomizado avaliou o rastreio frente à ausência de rastreio.<sup class="cite"><a href="#ref3">3</a></sup> Os dados de benefício disponíveis vêm de ensaios antigos (ACAS, ACST) que compararam cirurgia com terapia médica em pacientes já identificados e altamente selecionados, e não em população rastreada a partir do zero. A terapia clínica contemporânea (estatina de alta potência, controle pressórico e dos fatores de risco) reduziu o benefício incremental da cirurgia: no ACST, a diferença de risco de AVC entre operados e não operados caiu de 1,8% contra 3,3% ao ano sem estatina para 0,7% contra 1,3% ao ano com estatina.<sup class="cite"><a href="#ref4">4</a></sup> O racional histórico de rastrear para operar perde força à medida que a terapia clínica de base é otimizada.</p>
+  <p class="sec-lead prose">Rastrear também expõe o paciente aos danos da cascata diagnóstico-terapêutica: as taxas de AVC ou morte no perioperatório giram em torno de 2,4% após endarterectomia (CEA) e 3,1% após angioplastia com stent (CAS).<sup class="cite"><a href="#ref2">2</a></sup> A confiabilidade do próprio exame é limitada: um levantamento de 338 centros americanos credenciados identificou 145 limiares diagnósticos distintos em uso para classificar o grau de estenose, de modo que até 9,8% dos pacientes operados por estenose grave não teriam recebido esse diagnóstico em outro centro.<sup class="cite"><a href="#ref5">5</a></sup> Esse conjunto de achados sustenta o rastreio seletivo, e não populacional.<sup class="cite"><a href="#ref6">6</a></sup><sup class="cite"><a href="#ref7">7</a></sup> Na prática, o uso inadequado gera ansiedade ao paciente, custo desnecessário ao sistema, encaminhamentos evitáveis e possível exposição a procedimento invasivo sem benefício líquido comprovado.</p>
+
+  <!-- RECOMENDAÇÕES -->
+  <div class="deep-intro"><span class="t">Recomendações das diretrizes</span><span class="ln"></span></div>
+  <p class="sec-lead">As quatro principais fontes internacionais convergem contra o rastreio populacional e divergem apenas na força atribuída ao rastreio seletivo em subgrupos de risco.</p>
+  <div class="indic-wrap">
+    <table class="indic-table">
+      <thead><tr><th>Órgão / ano</th><th>Posição sobre rastreio em assintomático</th><th>Grau / nível</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="sit" data-label="Órgão">USPSTF 2021 (JAMA)<sup class="cite"><a href="#ref2">2</a></sup></td>
+          <td data-label="Posição">Contra o rastreio na população geral assintomática.</td>
+          <td class="src" data-label="Grau">Grau D (contra), certeza moderada</td>
+        </tr>
+        <tr>
+          <td class="sit" data-label="Órgão">SVS 2022 (J Vasc Surg)<sup class="cite"><a href="#ref4">4</a></sup></td>
+          <td data-label="Posição">Contra o rastreio populacional. Sugere rastreio seletivo em subgrupos de alto risco, se o paciente estiver disposto a considerar intervenção.</td>
+          <td class="src" data-label="Grau">Contra: Grau 1 (forte) / B. Seletivo: Grau 2 (fraco) / B</td>
+        </tr>
+        <tr>
+          <td class="sit" data-label="Órgão">ESVS 2023 (Eur J Vasc Endovasc Surg)<sup class="cite"><a href="#ref3">3</a></sup></td>
+          <td data-label="Posição">Contra o rastreio populacional. Rastreio seletivo pode ser considerado em pacientes com ≥2 fatores de risco vascular, para otimizar o controle de risco e a terapia médica.</td>
+          <td class="src" data-label="Grau">Contra: Classe III / C. Seletivo: Classe IIb / B</td>
+        </tr>
+        <tr>
+          <td class="sit" data-label="Órgão">ESC 2024 (Eur Heart J)<sup class="cite"><a href="#ref1">1</a></sup></td>
+          <td data-label="Posição">Contra o rastreio populacional. Rastreio seletivo em população altamente selecionada pode ser custo-efetivo se a prevalência for ≥20%.</td>
+          <td class="src" data-label="Grau">Recomendação textual (seção 6.1.2)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NÃO INDICADO -->
+  <div class="deep-intro"><span class="t">Não indicado / uso inadequado</span><span class="ln"></span></div>
+  <p class="sec-lead">O DCV não deve ser solicitado como triagem na população geral assintomática. Situações específicas em que o exame não está indicado:</p>
+  <div class="avoid-list">
+    <div class="ai"><span class="x"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><p>Rastreamento de rotina em paciente assintomático sem fatores de risco relevantes.</p></div>
+    <div class="ai"><span class="x"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><p>Como parte de check-up de rotina ou apenas para “tranquilizar” o paciente, prática que amplia a exposição a falso-positivo sem redução comprovada do risco de AVC.</p></div>
+    <div class="ai"><span class="x"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><p>Como base para decisão invasiva a partir de um resultado positivo isolado, sem contexto clínico compatível e sem confirmação em serviço credenciado.</p></div>
+  </div>
+
+  <!-- POPULAÇÕES DE ALTO RISCO -->
+  <div class="deep-intro"><span class="t">Populações de alto risco (rastreio seletivo)</span><span class="ln"></span></div>
+  <p class="sec-lead">Quando a prevalência de estenose em um subgrupo se aproxima ou ultrapassa 20%, a relação risco-benefício do rastreio muda favoravelmente (menor taxa de falso-positivo). O ESC 2024 sintetiza essas populações e suas prevalências estimadas.<sup class="cite"><a href="#ref1">1</a></sup></p>
+  <div class="indic-wrap">
+    <table class="indic-table">
+      <thead><tr><th>População</th><th>Prevalência de estenose</th></tr></thead>
+      <tbody>
+        <tr><td class="sit" data-label="População">Sopro carotídeo</td><td class="src" data-label="Prevalência">31%</td></tr>
+        <tr><td class="sit" data-label="População">Doença arterial periférica (DAP)</td><td class="src" data-label="Prevalência">23,2%</td></tr>
+        <tr><td class="sit" data-label="População">Hipertensão + doença cardíaca</td><td class="src" data-label="Prevalência">22%</td></tr>
+        <tr><td class="sit" data-label="População">Irradiação cervical prévia</td><td class="src" data-label="Prevalência">21,7%</td></tr>
+        <tr><td class="sit" data-label="População">Doença arterial coronariana grave (pré-CABG)</td><td class="src" data-label="Prevalência">~20%</td></tr>
+        <tr><td class="sit" data-label="População">Hemodiálise</td><td class="src" data-label="Prevalência">&gt;10%</td></tr>
+        <tr><td class="sit" data-label="População">&gt;60 anos com 2 fatores de risco cardiovascular</td><td class="src" data-label="Prevalência">14%</td></tr>
+        <tr><td class="sit" data-label="População">&gt;60 anos com 3 fatores de risco cardiovascular</td><td class="src" data-label="Prevalência">16%</td></tr>
+        <tr><td class="sit" data-label="População">&gt;60 anos com 4 fatores de risco cardiovascular</td><td class="src" data-label="Prevalência">67%</td></tr>
+      </tbody>
+    </table>
+    <p class="indic-note">Fonte: ESC 2024 (Tabela 6).<sup class="cite"><a href="#ref1">1</a></sup> A indicação de rastreio seletivo é uma recomendação fraca/condicional (SVS Grau 2/B; ESVS Classe IIb/B) e pressupõe que o achado vá mudar a conduta.</p>
+  </div>
+
+  <!-- PONTOS DE ATENÇÃO -->
+  <div class="deep-intro"><span class="t">Pontos de atenção</span><span class="ln"></span></div>
+  <div class="deep-hint">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    Toque em um tópico para ver os detalhes e as evidências.
+  </div>
+
+  <div class="acc">
+
+    <!-- 1 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">1</span>
+        <span class="acc-title">O objetivo do rastreio seletivo mudou: prevenção, não cirurgia</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Um ponto conceitual central do ESC 2024 e do ESVS 2023, reforçado pelos comentários de Paraskevas et al.: quando indicado, o rastreio seletivo não tem como objetivo primário encontrar candidato à revascularização cirúrgica, e sim identificar o paciente de alto risco cardiovascular “oculto” para intensificar a prevenção secundária sistêmica (estatina de alta intensidade, controle pressórico, antiagregação e cessação do tabagismo).<sup class="cite"><a href="#ref1">1</a></sup><sup class="cite"><a href="#ref3">3</a></sup><sup class="cite"><a href="#ref6">6</a></sup> Um estudo citado por Paraskevas et al. (Spence et al.) mostrou redução de mais de 80% no risco combinado de AVC e infarto em 2 anos com terapia médica intensiva em pacientes com estenose assintomática identificada.<sup class="cite"><a href="#ref6">6</a></sup></p>
+      </div></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="acc-item">
+      <button class="acc-head" aria-expanded="false">
+        <span class="acc-num">2</span>
+        <span class="acc-title">Danos da revascularização e da cascata diagnóstica</span>
+        <span class="acc-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Encontrar a estenose costuma acionar uma cascata cujos danos são concretos. As taxas de AVC ou morte no perioperatório giram em torno de 2,4% após endarterectomia (CEA) e 3,1% após angioplastia com stent (CAS).<sup class="cite"><a href="#ref2">2</a></sup> Some-se a isso a ansiedade do paciente, o custo ao sistema e os encaminhamentos evitáveis a especialista. Como a maioria dos pacientes assintomáticos já deveria estar em terapia clínica otimizada independentemente do achado de imagem, o resultado raramente altera a conduta esperada e o balanço tende a ser desfavorável fora dos subgrupos de risco.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- SÍNTESE DA EVIDÊNCIA -->
+  <div class="deep-intro"><span class="t">Síntese da evidência</span><span class="ln"></span></div>
+  <div class="indic-wrap">
+    <table class="indic-table">
+      <thead><tr><th>Pergunta</th><th>Resposta direta</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="sit" data-label="Pergunta">Devo solicitar o DCV como rastreio de rotina em paciente assintomático sem fatores de risco relevantes?</td>
+          <td data-label="Resposta">Não. Recomendação forte e convergente: USPSTF (Grau D)<sup class="cite"><a href="#ref2">2</a></sup>, SVS (Grau 1/B)<sup class="cite"><a href="#ref4">4</a></sup> e ESVS (Classe III/C)<sup class="cite"><a href="#ref3">3</a></sup>. Os danos do rastreio populacional superam os benefícios.</td>
+        </tr>
+        <tr>
+          <td class="sit" data-label="Pergunta">Existe alguma situação em que o exame é justificável em paciente assintomático?</td>
+          <td data-label="Resposta">Sim, em subgrupos com prevalência estimada ≥20% (por exemplo: sopro carotídeo, DAP, pré-CABG, hemodiálise, &gt;60 anos com múltiplos fatores de risco). É recomendação fraca/condicional (SVS Grau 2/B; ESVS Classe IIb/B), e o objetivo é intensificar a prevenção secundária, não indicar cirurgia.</td>
+        </tr>
+        <tr>
+          <td class="sit" data-label="Pergunta">O resultado do DCV é padronizado e comparável entre serviços?</td>
+          <td data-label="Resposta">Não necessariamente. Columbo et al. (2020) identificaram 145 limiares diagnósticos distintos entre 338 centros credenciados; até 9,8% dos pacientes operados por estenose grave não teriam recebido esse diagnóstico em outro centro.<sup class="cite"><a href="#ref5">5</a></sup></td>
+        </tr>
+        <tr>
+          <td class="sit" data-label="Pergunta">Encontrar a estenose muda a conduta na maioria dos assintomáticos?</td>
+          <td data-label="Resposta">Na maioria dos casos, não. O tratamento de base (controle de fatores de risco, estatina de alta potência e antiagregação quando indicada) já deveria estar otimizado, independentemente do achado de imagem.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RECOMENDAÇÕES PRÁTICAS -->
+  <div class="deep-intro"><span class="t">Recomendação prática</span><span class="ln"></span></div>
+  <div class="roteiro">
+    <ol>
+      <li>Não solicitar o DCV como rastreio de rotina em paciente assintomático sem fatores de risco relevantes.</li>
+      <li>Antes de solicitar, perguntar: “o resultado deste exame vai mudar a conduta clínica que eu já deveria adotar para este paciente?”. Se a resposta for não (risco cardiovascular já otimizado), o exame tende a agregar pouco.</li>
+      <li>Considerar a solicitação apenas nos subgrupos de risco identificados, e quando houver disposição explícita do paciente em considerar intervenção, ou quando o objetivo declarado for intensificar a prevenção secundária a partir do resultado.</li>
+      <li>Ao solicitar, encaminhar preferencialmente a laboratório vascular credenciado, que use critérios diagnósticos padronizados e explicite no laudo o limiar de velocimetria utilizado.</li>
+      <li>Interpretar com cautela um resultado positivo isolado sem contexto clínico compatível: considerar segunda opinião ou repetição em serviço credenciado antes de qualquer decisão terapêutica invasiva.</li>
+      <li>Evitar solicitar o exame apenas para tranquilizar o paciente ou por rotina de check-up.</li>
+    </ol>
+  </div>
+
+  <!-- VOCÊ SABIA -->
+  <div class="didyou">
+    <div class="ic">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+    </div>
+    <div>
+      <div class="h">Você sabia?</div>
+      <p>Um levantamento de 338 centros americanos credenciados identificou <b>145 limiares diagnósticos distintos</b> em uso para classificar o grau de estenose. Na prática, até <b>9,8% dos pacientes operados</b> por estenose grave não teriam recebido esse diagnóstico caso avaliados em outro centro.<sup class="cite"><a href="#ref5">5</a></sup></p>
     </div>
   </div>
+
+  <!-- COMITÊ -->
+  <div class="credit">
+    <b>Comitê Técnico Academic Detailing</b>, Unimed CNU · Seguros Unimed. Versão 1.0 · Setembro de 2026.
+  </div>
+
+  <!-- REFERÊNCIAS -->
+  <section class="refs">
+    <h2>
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Referências
+    </h2>
+    <ol>
+      <li id="ref1">Mazzolai L, et al. 2024 ESC Guidelines for the management of peripheral arterial and aortic diseases. European Heart Journal. 2024;45(36):3538-3700. DOI: 10.1093/eurheartj/ehae179.</li>
+      <li id="ref2">US Preventive Services Task Force. Screening for asymptomatic carotid artery stenosis: US Preventive Services Task Force recommendation statement. JAMA. 2021;325(5):476-481. DOI: 10.1001/jama.2020.26988.</li>
+      <li id="ref3">Naylor R, et al. Editor's Choice: European Society for Vascular Surgery (ESVS) 2023 clinical practice guidelines on the management of atherosclerotic carotid and vertebral artery disease. European Journal of Vascular and Endovascular Surgery. 2023;65(1):7-111. DOI: 10.1016/j.ejvs.2022.04.011.</li>
+      <li id="ref4">AbuRahma AF, et al. Society for Vascular Surgery clinical practice guidelines for management of extracranial cerebrovascular disease. Journal of Vascular Surgery. 2022;75(1 Suppl):4S-22S. DOI: 10.1016/j.jvs.2021.04.073.</li>
+      <li id="ref5">Columbo JA, et al. Variation in ultrasound diagnostic thresholds for carotid stenosis in the United States. Circulation. 2020;141(12):946-953. DOI: 10.1161/CIRCULATIONAHA.119.043963.</li>
+      <li id="ref6">Paraskevas KI, et al. Clarifying the rationale supporting selective screening for asymptomatic carotid artery stenosis. International Journal of Cardiology. 2023;376:174-175. DOI: 10.1016/j.ijcard.2023.01.028.</li>
+      <li id="ref7">Paraskevas KI, et al. Selective screening for asymptomatic carotid artery stenosis: an appraisal of the 2024 European Society of Cardiology (ESC) guidelines position. The American Journal of Medicine. 2025;138(2):209-211. DOI: 10.1016/j.amjmed.2024.10.033.</li>
+    </ol>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <strong>Consultoria Acadêmica</strong>. Material de apoio para visita médica. Conteúdo de caráter educacional, baseado nas referências citadas. As condutas devem ser individualizadas conforme avaliação clínica.<br>
+    Protótipo para validação · Setembro/2026.<br>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfC4KoE8vejdwxxd4KPuM6HADXPDFLcvwDX7TQ93pgHbNBaKA/viewform?usp=pp_url&amp;entry.1641705264=Doppler+de+carotidas+e+vertebrais" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Sugerir correção</a> · equipe Unimed.
+  </div>
+
 </div>
-
-<!-- ========== GRID DE MATERIAIS ========== -->
-<section class="section" style="padding-top:48px" id="categorias">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Materiais</div>
-        <h2>Biblioteca de visual aids</h2>
-        <p>Cada material traz mensagens-chave no topo e o aprofundamento com evidência logo abaixo, pronto para a visita e para consulta rápida depois.</p>
-      </div>
-      <span class="badge badge-outline" id="count">9 materiais disponíveis</span>
-    </div>
-
-    <div class="grid" id="grid">
-
-      <!-- Ultrassom de abdome total -->
-      <a class="card" href="ultrassom-abdome.html" data-cat="imagem" data-title="ultrassom ultrassonografia usg de abdome total us abdominal ecografia abdominal imagem rastreamento aorta aaa esteatose hepatica achados incidentais choosing wisely">
-        <div class="card-top g-img">
-          <span class="cat">Exames de Imagem</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/><path d="M3 17c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/><path d="M3 7c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Ultrassom de abdome total</h3>
-          <p>Por que não usar como rastreamento de rotina em assintomáticos: indicações apropriadas, o que não pedir e os pontos de atenção (AAA, esteatose).</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~7 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 20 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Doppler de carótidas e vertebrais -->
-      <a class="card" href="doppler-carotidas.html" data-cat="imagem" data-title="doppler duplex de carotidas e vertebrais eco-doppler vasos cervicais estenose carotidea rastreamento assintomatico avc uspstf svs esvs esc imagem choosing wisely">
-        <div class="card-top g-img">
-          <span class="cat">Exames de Imagem</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/><path d="M3 17c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/><path d="M3 7c1.2 0 1.2-2 2.4-2s1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2 1.2 2 2.4 2 1.2-2 2.4-2"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Doppler de carótidas e vertebrais</h3>
-          <p>Por que não usar como rastreamento de rotina em assintomáticos: rastreio seletivo em subgrupos de alto risco, segundo USPSTF, SVS, ESVS e ESC.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~7 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Vitamina B12 -->
-      <a class="card" href="vitamina-b12.html" data-cat="vitaminas" data-title="vitamina b12 cobalamina dosagem serica deficiencia metformina ibp anti-h2 acido metilmalonico homocisteina vitaminas nutrientes choosing wisely">
-        <div class="card-top g-nutri">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/><path d="M7.5 10.5 9 12l-1.5 1.5"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Dosagem de vitamina B12 (cobalamina)</h3>
-          <p>Quando dosar (e quando não) a B12 sérica: reservar para sintomas sugestivos ou fatores de risco, segundo NICE, ABRAN, BC Guidelines e AAFP.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~7 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Cascata da sobreprevenção -->
-      <a class="card" href="cascata-sobreprevencao.html" data-cat="seguranca" data-title="cascata da sobreprevencao prevencao quaternaria sobrediagnostico sobretratamento efeitos adversos seguranca do paciente rastreamento check-up excesso de exames choosing wisely">
-        <div class="card-top g-prev">
-          <span class="cat">Segurança do Paciente</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7 12 11l7.5-4L12 3z"/><path d="M4.5 12 12 16l7.5-4M4.5 17 12 21l7.5-4"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>A cascata da sobreprevenção</h3>
-          <p>Como um exame desnecessário inicia uma cascata de sobrediagnóstico, sobretratamento e efeitos adversos, nas pessoas e no sistema.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~4 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 4 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Vitamina D -->
-      <a class="card" href="vitamina-d.html" data-cat="vitaminas" data-title="dosagem de vitamina d em adultos assintomaticos 25 hidroxivitamina rastreamento vitaminas nutrientes">
-        <div class="card-top g-nutri">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Dosagem de Vitamina D em adultos assintomáticos</h3>
-          <p>Quando solicitar (e quando não solicitar) a 25(OH)D na prática clínica, segundo as diretrizes mais recentes.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~6 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 9 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Ureia -->
-      <a class="card" href="ureia.html" data-cat="renal" data-title="ureia creatinina funcao renal tfge rac kdigo rastreamento choosing wisely">
-        <div class="card-top g-lab">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M14 3.2C8.8 2.9 4.4 6.8 4 12s3 9.3 7.7 9.6c2.1.1 3.5-1.2 3.4-3-.1-1.4-1.1-2.3-2-3.1-1-.8-1.9-1.6-1.8-3 .1-1.7 1.6-2.9 3.3-2.7 1 .1 1.7.7 2.5 1.2.9.6 2.1.3 2.4-.9C22 7.7 19.9 3.6 14 3.2z"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Ureia no rastreamento da função renal</h3>
-          <p>Por que a ureia não deve ser rotina: no lugar, use creatinina com TFGe e a relação albumina/creatinina.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 9 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- TGO/TGP -->
-      <a class="card" href="tgo-tgp.html" data-cat="hepatica" data-title="tgo tgp ast alt transaminase funcao hepatica figado painel choosing wisely">
-        <div class="card-top g-presc">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M2.5 7c6-2.5 13-2.5 19 0 .2 5.2-3.3 9.4-8.4 9.4-1.8 0-3-.9-3.9-2-.9.6-1.9 1.1-3 1.1-2.3 0-3.6-1.9-3.6-4.3 0-1.6.2-2.9-.6-4.2z"/><path d="M13.5 9c1.6.4 3.2.5 4.8.1" stroke-width="1.1"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>TGO junto da TGP: quando desacoplar</h3>
-          <p>Por que a TGO agrega pouco quando a TGP já foi pedida no painel hepático de rotina, e quando reservá-la.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- VHS -->
-      <a class="card" href="vhs.html" data-cat="inflamacao" data-title="vhs velocidade de hemossedimentacao pcr proteina c reativa inflamacao marcador choosing wisely">
-        <div class="card-top g-prev">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.5h6M10 2.5v14.6a2 2 0 0 0 4 0V2.5"/><path d="M10 12.2h4"/><circle cx="12" cy="14.8" r=".55" fill="currentColor" stroke="none"/><circle cx="10.9" cy="16.4" r=".55" fill="currentColor" stroke="none"/><circle cx="13.1" cy="16.5" r=".55" fill="currentColor" stroke="none"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>VHS: prefira a PCR como marcador de inflamação</h3>
-          <p>Por que a VHS não serve de triagem em assintomáticos, e por que a PCR deve ser o marcador principal.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~6 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 8 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- TSH -->
-      <a class="card" href="tsh.html" data-cat="tireoide" data-title="tsh t4 livre t3 livre tireoide hipotireoidismo levotiroxina rastreio choosing wisely">
-        <div class="card-top g-lab">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="7.6" cy="13.2" rx="3.3" ry="4.4" transform="rotate(-12 7.6 13.2)"/><ellipse cx="16.4" cy="13.2" rx="3.3" ry="4.4" transform="rotate(12 16.4 13.2)"/><path d="M10.1 12.3h3.8"/><path d="M12 12.3V6.2"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>TSH isolado no rastreio da tireoide</h3>
-          <p>Por que o TSH sozinho basta na maioria dos casos, e quando realmente pedir T4 livre e T3 livre.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Ácido fólico -->
-      <a class="card" href="acido-folico.html" data-cat="vitaminas" data-title="acido folico folato serico eritrocitario rbc fortificacao anemia macrocitica vitaminas nutrientes choosing wisely">
-        <div class="card-top g-nutri">
-          <span class="cat">Exames Laboratoriais</span>
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C3 12 8 3.5 20.5 3.5 20.5 16 12 21 4 20z"/><path d="M4 20 15.5 8.5"/><path d="M12 12.5l3-1M8.5 16l3-1" stroke-width="1.1"/></svg></span>
-        </div>
-        <div class="card-body">
-          <h3>Ácido fólico: quando (não) dosar</h3>
-          <p>Por que a deficiência isolada é rara pós-fortificação, e quando reservar a dosagem ou suplementar sem dosar.</p>
-          <div class="card-meta">
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~5 min</span>
-            <span class="m"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg> 7 refs</span>
-            <span class="card-cta">Abrir <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-
-    <p id="empty" style="display:none;text-align:center;color:var(--muted-foreground);padding:40px 0;font-size:15px">Nenhum material encontrado para essa busca.</p>
-  </div>
-</section>
-
-<!-- ========== SOBRE / COMO FUNCIONA ========== -->
-<section class="about section" id="programa">
-  <div class="container about-grid">
-    <div class="about-copy">
-      <div class="eyebrow">O programa</div>
-      <h2>O que é Academic Detailing</h2>
-      <p>É uma estratégia de educação médica continuada em que consultores capacitados visitam médicos da rede para levar <b>conteúdo clínico atualizado, embasado em evidência e sem interesse comercial</b>.</p>
-      <p>Nasceu como resposta ao <i>detailing</i> farmacêutico: usa o mesmo canal (a visita individual, a conversa de igual para igual, o material de apoio bem desenhado), mas inverte a lógica. Em vez de vender um produto, entrega a melhor síntese disponível da literatura para apoiar a decisão clínica.</p>
-      <p style="margin-bottom:0">Esta biblioteca concentra todo o conhecimento gerado pelo programa: cada <b>visual aid</b> validado pela equipe acadêmica da Unimed fica aqui, disponível para consulta antes, durante e depois da visita.</p>
-    </div>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h8M8 8h8M8 16h5"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></div>
-        <h4>Isenção comercial</h4>
-        <p>Conteúdo acadêmico e autoral, produzido por pares. A credibilidade vem de não haver produto sendo empurrado.</p>
-      </div>
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h4>Revisado por pares</h4>
-        <p>Cada material passa por curadoria e validação acadêmica interna antes de chegar à visita.</p>
-      </div>
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
-        <h4>Enxuto e visual</h4>
-        <p>Poucas mensagens-chave no topo, evidência e aprofundamento logo abaixo. Feito para ser usado, não arquivado.</p>
-      </div>
-      <div class="pillar">
-        <div class="pi"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h4>Relacionamento</h4>
-        <p>O valor se constrói em ciclos de visita e no vínculo com o médico da rede, não numa entrega única.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CTA FINAL ========== -->
-<section class="section">
-  <div class="container">
-    <div class="cta-final">
-      <div class="in">
-        <h2>Todo o conhecimento do programa, num só lugar.</h2>
-        <p>Explore os materiais publicados ou acompanhe os próximos temas em produção pela equipe acadêmica da Seguros Unimed.</p>
-        <div class="btns">
-          <a href="#biblioteca" class="btn btn-primary btn-lg" style="background:#fff;color:var(--g1d);box-shadow:0 8px 24px rgba(0,0,0,.18)">Abrir a biblioteca</a>
-          <a href="#programa" class="btn btn-ghost-light btn-lg">Conhecer o programa</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="brand">
-          <span class="brand-mark" style="background:var(--grad-marca);display:flex;align-items:center;justify-content:center">
-            <span style="width:26px;height:26px;background:var(--logo-ad) center/contain no-repeat"></span>
-          </span>
-          <span class="brand-txt">
-            <span class="nm" style="font-size:15px">Consultoria Acadêmica</span>
-            <span class="sb" style="display:block">Seguros Unimed</span>
-          </span>
-        </div>
-        <p class="footer-about">Biblioteca de conhecimento clínico do programa Consultoria Acadêmica. Conteúdo de caráter educacional; as condutas devem ser individualizadas conforme avaliação clínica.</p>
-      </div>
-      <div>
-        <h5>Materiais</h5>
-        <ul>
-          <li><a href="ultrassom-abdome.html">Ultrassom de abdome total</a></li>
-          <li><a href="vitamina-b12.html">Vitamina B12 / cobalamina</a></li>
-          <li><a href="cascata-sobreprevencao.html">A cascata da sobreprevenção</a></li>
-          <li><a href="vitamina-d.html">Vitamina D</a></li>
-          <li><a href="ureia.html">Ureia / função renal</a></li>
-          <li><a href="tgo-tgp.html">TGO / TGP</a></li>
-          <li><a href="vhs.html">VHS</a></li>
-          <li><a href="tsh.html">TSH / T4L / T3L</a></li>
-          <li><a href="acido-folico.html">Ácido fólico</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Temas</h5>
-        <ul>
-          <li><a href="#biblioteca">Segurança do paciente</a></li>
-          <li><a href="#biblioteca">Exames de imagem</a></li>
-          <li><a href="#biblioteca">Função renal</a></li>
-          <li><a href="#biblioteca">Função hepática</a></li>
-          <li><a href="#biblioteca">Tireoide</a></li>
-          <li><a href="#biblioteca">Inflamação</a></li>
-          <li><a href="#biblioteca">Vitaminas e nutrientes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Programa</h5>
-        <ul>
-          <li><a href="#programa">O que é</a></li>
-          <li><a href="#programa">Como funciona</a></li>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfC4KoE8vejdwxxd4KPuM6HADXPDFLcvwDX7TQ93pgHbNBaKA/viewform?usp=pp_url&amp;entry.1641705264=Portal+/+p%C3%A1gina+inicial" target="_blank" rel="noopener">Sugerir correção</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p><strong>Consultoria Acadêmica</strong>. Material de apoio à visita médica. Protótipo para validação · 2026.</p>
-      <p class="made">Sistema de marca Consultoria Acadêmica · Unimed Sans</p>
-    </div>
-  </div>
-</footer>
 
 <script>
 (function(){
-  var q = document.getElementById('q');
-  var chips = document.querySelectorAll('.chip');
-  var cards = Array.from(document.querySelectorAll('#grid .card'));
-  var empty = document.getElementById('empty');
-  var count = document.getElementById('count');
-  var activeCat = 'all';
-
-  function apply(){
-    var term = (q.value || '').toLowerCase().trim();
-    var shown = 0;
-    cards.forEach(function(c){
-      var okCat = activeCat === 'all' || c.getAttribute('data-cat') === activeCat;
-      var okTerm = !term || (c.getAttribute('data-title') || '').indexOf(term) > -1;
-      var vis = okCat && okTerm;
-      c.style.display = vis ? '' : 'none';
-      if(vis) shown++;
-    });
-    empty.style.display = shown ? 'none' : 'block';
-    count.textContent = shown + (shown === 1 ? ' material' : ' materiais') + (shown === 1 ? ' disponível' : ' disponíveis');
-  }
-
-  q.addEventListener('input', apply);
-  chips.forEach(function(ch){
-    ch.addEventListener('click', function(){
-      chips.forEach(function(x){x.classList.remove('active')});
-      ch.classList.add('active');
-      activeCat = ch.getAttribute('data-cat');
-      apply();
+  var heads = document.querySelectorAll('.acc-head');
+  heads.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var body = item.querySelector('.acc-body');
+      if(item.classList.contains('open')){
+        body.style.maxHeight = null;
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
     });
   });
-
-  apply();
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.acc-item.open .acc-body').forEach(function(b){
+      b.style.maxHeight = b.scrollHeight + 'px';
+    });
+  });
+  document.querySelectorAll('sup.cite a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var li = document.getElementById(a.getAttribute('href').slice(1));
+      if(li){ li.classList.remove('flash'); void li.offsetWidth; li.classList.add('flash'); }
+    });
+  });
 })();
 </script>
+
+
+<div id="adshare"><button id="adshare-btn" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg> Compartilhar</button>
+<div id="adshare-panel" hidden><div class="adshare-h">Compartilhar este material</div><img id="adshare-qr" width="200" height="200" alt="QR code do material"><p class="adshare-hint">Aponte a camera do celular para o QR</p><a id="adshare-wa" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg> Enviar no WhatsApp</a><button id="adshare-copy" type="button">Copiar link</button></div></div>
+<style>#adshare{position:fixed;right:16px;bottom:16px;z-index:9999;font-family:'Unimed Sans','Inter',system-ui,sans-serif}#adshare-btn{display:inline-flex;align-items:center;gap:8px;background:#00524D;color:#fff;border:none;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(9,24,48,.28)}#adshare-btn:hover{background:#03635C}#adshare-panel{position:absolute;right:0;bottom:56px;width:264px;background:#fff;border:1px solid #e2e8e5;border-radius:16px;box-shadow:0 18px 50px rgba(9,24,48,.22);padding:18px;text-align:center}.adshare-h{font-size:14px;font-weight:700;color:#1a2420;margin-bottom:12px}#adshare-qr{border-radius:10px;background:#f5f4f0}.adshare-hint{font-size:12px;color:#7d8c86;margin:8px 0 14px}#adshare-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;border-radius:10px;padding:11px;font-size:14px;font-weight:700;margin-bottom:9px}#adshare-copy{width:100%;background:#EAF0ED;color:#00524D;border:1px solid #CBD7D1;border-radius:10px;padding:11px;font-size:14px;font-weight:700;cursor:pointer}#adshare-copy:hover{background:#e6f7f0}@media print{#adshare{display:none}}</style>
+<script>(function(){var url=location.href.split('#')[0];var title=(document.title||'').split('—')[0].trim();var qr=document.getElementById('adshare-qr');qr.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data='+encodeURIComponent(url);document.getElementById('adshare-wa').href='https://wa.me/?text='+encodeURIComponent(title+' — material Consultoria Acadêmica: '+url);var btn=document.getElementById('adshare-btn'),panel=document.getElementById('adshare-panel');btn.addEventListener('click',function(e){e.stopPropagation();panel.hidden=!panel.hidden;});var copy=document.getElementById('adshare-copy');copy.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(url).then(function(){copy.textContent='Link copiado!';setTimeout(function(){copy.textContent='Copiar link';},1600);});});document.addEventListener('click',function(ev){if(!document.getElementById('adshare').contains(ev.target))panel.hidden=true;});})();</script>
 
 </body>
 </html>
